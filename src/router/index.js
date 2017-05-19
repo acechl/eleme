@@ -25,6 +25,6 @@ export default new Router({
     {path:"/self",name:"self",component:self},
     {path:"/search",name:"search",component:search},
     {path:"/squareDetail",name:"squareDetail",component: squareDetail},
-    {path:"./account",name:"account",component:account}
+    {path:"/account",name:"account",component:account}
   ]
 })

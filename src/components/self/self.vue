@@ -2,35 +2,52 @@
     <div class="self overflow">
         <div class="header">
             <div class="top">
-                <a href="" v-on:click="$router.back(-1)" class="el-icon-arrow-left"></a>
+                <router-link to="./address" class="el-icon-arrow-left"></router-link>
                 <span>我的服务</span>
                 <span class="right"></span>
             </div>
-            <div class="user">
+            <div class="user" v-if="login">
                 <div class="use">
                     <img v-bind:src="pictureUrl" alt="">
                     <span class="name">用户名:{{userName}}</span>
-                    <input type="file" name="" id="" v-on:change="chooseImg($event)" multiple>
+                    <input type="file" name="" id="" v-on:change="chooseImg($event)" accept="image/jpg,image/png,image/jpeg" multiple>
                 </div>
                 <router-link to="./account"class="el-icon-arrow-right"></router-link>
+                
+            </div>
+            <div v-else>
+                <router-link to="./register">请登录</router-link>
+            </div>
+            <div class="add">
+                <img v-for="url in imgUrl" v-bind:src="url.src" alt="">
             </div>
         </div>
     </div>
 </template>
 <script>
-import {mapState} from "vuex"
+import {mapState,mapMutations} from "vuex";
+import img from "../../js/img.js";
+import {imgChoosing} from "../../js/common.js";
     export default {
         name: "self",
         data: function () {
             return {
-                imgValue: ""
+                imgValue: "",
+                imgNumLimit: 4,//限制每一次最多上传的图片
+                imgArr: [],
+                imgEle: "",
+                imgUrl: "",
+                change: false
             }
         },
         computed: {
             ...mapState([
                 "pictureUrl",
                 "userName"
-            ])
+            ]),
+            login () {
+                return this.$store.state.isLogin;
+            }
         },
         mounted () {
             
@@ -38,8 +55,23 @@ import {mapState} from "vuex"
         methods: {
             chooseImg: function (event) {
                console.log( event.currentTarget.value);
-               console.log(event.target.files)
-            }
+               console.log(event.target.files);
+               var fileList = event.target.files;
+               var _this = this;
+            //    方法1：用回调函数
+                // img.choose_Img(fileList,this.imgArr,this.imgNumLimit,this.imgEle,function(imgAdd){
+                    // _this.$store.commit("pictureUrl",{
+                    //     pictureUrl: imgAdd[0].src
+                    // })
+                // })
+                // 方法2： 用非父子组件通信
+                 img.choose_Img(fileList,this.imgArr,this.imgNumLimit,this.imgEle)
+                 imgChoosing.$on("imgAdd",function(obj){
+                    _this.$store.commit("pictureUrl",{
+                        pictureUrl: obj[0].src
+                    })
+                })
+            },
         }
     }
 </script>
@@ -119,5 +151,9 @@ import {mapState} from "vuex"
                 opacity: 0;
             }
         }
+    }
+    .add img {
+        width: 60px;
+        height: 60px;
     }
 </style>
