@@ -11,6 +11,7 @@ import self from "@/components/self/self"
 import search from "@/components/search/search"
 import squareDetail from "@/components/square/squareDetail"
 import account from "@/components/self/account"
+import moreDetail from "@/components/square/moreDetail"
 Vue.use(Router)
 Vue.use(Resource)
 
@@ -25,6 +26,7 @@ export default new Router({
     {path:"/self",name:"self",component:self},
     {path:"/search",name:"search",component:search},
     {path:"/squareDetail",name:"squareDetail",component: squareDetail},
-    {path:"/account",name:"account",component:account}
+    {path:"/account",name:"account",component:account},
+    {path:"/moreDetail/:type",name:"moreDetail",component:moreDetail}
   ]
 })

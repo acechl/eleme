@@ -52,7 +52,7 @@ import {check_login} from "../../js/utlis"
         },
         data: () => {
             return  {
-                 local: "广州",
+                 local: "",
             hotCity: [
                 {city: "上海"},
                 {city: "哈尔滨"},
@@ -116,6 +116,22 @@ import {check_login} from "../../js/utlis"
                 })
                _this.pictureUrl({pictureUrl:"../../../static/imgs/self.jpg"});
                _this.userName({userName: "蜡笔小新"})
+                var map = new BMap.Map("allmap");
+               var geoc = new BMap.Geocoder();
+               var geolocation = new BMap.Geolocation();
+               geolocation.getCurrentPosition(function(r){
+                   if(this.getStatus() == 0){
+                       var point = new BMap.Point(r.point.lng,r.point.lat);
+                       geoc.getLocation(point,function(rs){
+                           var addComp = rs.addressComponents;
+                           _this.local = addComp.city.replace("市","") || "广州";
+                           
+                       })
+                       
+                   }else {
+                       console.log("fail",this.getStatus());
+                   }
+               },{enableHeightAccuracy:true})
             }
         }
     }

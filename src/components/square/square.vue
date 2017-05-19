@@ -15,7 +15,7 @@
                 <swiper-slide class="loop">
                     <ul class="clearfix">
                         <li v-for="item in items1" class="fl">
-                            <router-link to="/squareDetail">
+                            <router-link v-bind="{to:'/moreDetail/'+item.title}">
                                 <img v-bind:src='item.img' alt="">
                                 <div>{{item.title}}</div>
                             </router-link>
@@ -25,7 +25,7 @@
                 <swiper-slide class="loop">
                     <ul class="clearfix">
                         <li v-for="item in items2" class="fl">
-                            <router-link to="/squareDetail">
+                            <router-link to="/moreDetail">
                                 <img v-bind:src='item.img' alt="">
                                 <div>{{item.title}}</div>
                             </router-link>

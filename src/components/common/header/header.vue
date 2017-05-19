@@ -1,7 +1,5 @@
 <template> 
     <div class="header">
-            <!--<a href="javascript;:" class="fl">黄氏烘焙</a>-->
-            <!--<a href="javascript;:" class="fl"></a>-->
             <slot name="left" class="left"></slot>
             <slot name="middle" class="middle"></slot>
             <slot name="right" class="right"></slot>
@@ -59,6 +57,8 @@
                  box-sizing: border-box;
                  margin: 0px;
                  text-align: center;
+                 color: #fff;
+                 font-size: 14px;
              }
          }
 </style>
