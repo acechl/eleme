@@ -1,5 +1,5 @@
 <template>
-    <div class="tab">
+    <div class="tab overflow">
         <component v-bind:is="type" v-bind:addresses="address"></component>
         <div class="tab-bottom">
             <ul class="clearfix">
@@ -60,7 +60,7 @@ import Vue from "vue";
             bottom: 0px;
             width: 100%;
             ul {
-                widht: 100%;
+                width: 100%;
                 background-color: #fff;
                 height: 50px;
                 li {
@@ -75,7 +75,7 @@ import Vue from "vue";
                         height: 20px;
                         margin-top: 5px;
                         margin-bottom: 5px;
-                        font-size: 20px;
+                        font-size: 14px;
                     }
                     change {
                         color: blue;

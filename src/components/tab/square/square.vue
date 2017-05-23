@@ -97,11 +97,11 @@
                    {"img":"../../../../static/imgs/ricce.jpeg","title": "日韩料理"},
                ],
                details: [
-                   {"img":"../../../../static/imgs/m1.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":1,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m2.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                    {"img":"../../../../static/imgs/m3.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m4.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m1.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                   {"img":"../../../../static/imgs/m1.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":2.2,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":1,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                   {"img":"../../../../static/imgs/m2.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":0.3,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                    {"img":"../../../../static/imgs/m3.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":3.4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                   {"img":"../../../../static/imgs/m4.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4.5,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                   {"img":"../../../../static/imgs/m1.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":5,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
                    {"img":"../../../../static/imgs/m2.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
                    {"img":"../../../../static/imgs/m3.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
                    {"img":"../../../../static/imgs/m4.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
@@ -111,7 +111,7 @@
                    {"img":"../../../../static/imgs/m4.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
                    {"img":"../../../../static/imgs/m1.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
                    {"img":"../../../../static/imgs/m2.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m3.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                   {"img":"../../../../static/imgs/m3.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33}
                ]
             }
         },
@@ -173,7 +173,7 @@
                         display: block;
                         margin: 0 auto;
                         div {
-                            font-size: 16px;
+                            font-size: 14px;
                             margin-top: 5px;
                         }
                         img {

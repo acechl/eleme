@@ -1,6 +1,5 @@
 <template>
-   <div class="moreDetail">
-        
+   <div class="moreDetail overflow">
        <component v-bind:is="type" v-bind:title="title"></component>
    </div>
 </template>
@@ -34,6 +33,8 @@ import squareElse from "./squareElse.vue";
     }
 </script>
 <style lang="less" scoped>
-   
+   .moreDetail {
+       height: 100%;
+   }
 </style>
 
