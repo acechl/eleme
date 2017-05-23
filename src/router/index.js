@@ -6,12 +6,13 @@ import address from "@/components/address/address"
 import disctrict from "@/components/disctrict/disctrict"
 import register from "@/components/register/register"
 import passwordRegister from "@/components/register/passwordRegister"
-import square from "@/components/square/square"
-import self from "@/components/self/self"
-import search from "@/components/search/search"
-import squareDetail from "@/components/square/squareDetail"
-import account from "@/components/self/account"
-import moreDetail from "@/components/square/moreDetail"
+import square from "@/components/tab/square/square"
+import self from "@/components/tab/self/self"
+import search from "@/components/tab/search/search"
+import squareDetail from "@/components/tab/square/squareDetail"
+import account from "@/components/tab/self/account"
+import moreDetail from "@/components/tab/square/moreDetail"
+import tab from "@/components/tab/tab"
 Vue.use(Router)
 Vue.use(Resource)
 
@@ -27,6 +28,7 @@ export default new Router({
     {path:"/search",name:"search",component:search},
     {path:"/squareDetail",name:"squareDetail",component: squareDetail},
     {path:"/account",name:"account",component:account},
-    {path:"/moreDetail/:type",name:"moreDetail",component:moreDetail}
+    {path:"/moreDetail/:type",name:"moreDetail",component:moreDetail},
+    {path:"/tab/:address",name:"tab",component:tab}
   ]
 })

@@ -1,7 +1,5 @@
 <template> 
     <div class="header">
-            <!--<a href="javascript;:" class="fl">黄氏烘焙</a>-->
-            <!--<a href="javascript;:" class="fl"></a>-->
             <slot name="left" class="left"></slot>
             <slot name="middle" class="middle"></slot>
             <slot name="right" class="right"></slot>
@@ -21,38 +19,37 @@
      @cblue: #1D8CE0;
      .header {
              background-color: @cblue;
-             height: 50px;
+             height: 30px;
              width: 100%;
-             line-height: 50px;
+             line-height: 30px;
              span {
                 display: inline-block;
-                 line-height: 50px;
+                 line-height: 30px;
                  margin-right: 0.2rem;
                     color: #fff;
              }
             a {
                  margin-left: 0.2rem;
                  color: #fff;
-                 font-size: 20px;
+                 font-size: 14px;
              }
              .left {
                  position: absolute;
                  width: 60px;
-                 height: 50px;
+                 height: 30px;
                  left: 0px;
                  top: 0px;
                  margin: 0px; 
-                 line-height: 50px;
+                 line-height: 30px;
              }
              .right{
                  position: absolute;
                  width: 100px;
-                 height: 50px;
+                 height: 30px;
                  top: 0px;
                  right: 0px;
                  margin: 0px;
                  text-align: center;
-                 line-height: 50px;
              }
              .middle {
                  width: 100%;
@@ -60,7 +57,8 @@
                  box-sizing: border-box;
                  margin: 0px;
                  text-align: center;
-                 font-size: 20px;
+                 color: #fff;
+                 font-size: 14px;
              }
          }
 </style>

@@ -11,7 +11,7 @@
             <input type="text" placeholder="输入学校、商务楼、地址" v-on:input="changeAddress" v-model="addressing">
             <ul>
                  <li v-for="item in shops" class="shops">
-                       <router-link v-bind="{to:'/tab/'+item.address}" >{{item.address}}</router-link>
+                       <router-link v-bind="{to:'/square/'+item.address}" >{{item.address}}</router-link>
                  </li>
              </ul>
         </div>
@@ -116,7 +116,7 @@
     .disctrict {
         .header {
             .el-icon-arrow-left {
-                line-height: 50px;
+                line-height: 30px;
             }
             .middle {
                  width: 100%;
@@ -128,7 +128,7 @@
                  position: absolute;
                  top: 0px;
                  left: 0px;
-                 height: 50px;
+                 height: 30px;
                  width: 60px;
                  margin: 0px;
              }
@@ -136,8 +136,8 @@
                  position: absolute;
                  top: 0px;
                  right: 20px;
-                 height: 50px;
-                 width: 80px;
+                 height: 30px;
+                 width: 60px;
                 margin: 0px;
                 text-align: center;
              }
