@@ -1,9 +1,9 @@
 <template>
     <div class="shopDetail">
         <h6>附近商家</h6>
-          <v-scroll :on-refresh="onRefresh" :on-infinite="onInfinite" :dataList="scrollData">
+        <!--   <v-scroll :on-refresh="onRefresh" :on-infinite="onInfinite" :dataList="scrollData">-->
              <ul>
-                <li v-for="(item,index) in listData">
+                <li v-for="(item,index) in detail">
                     <router-link to="squareDetail" class="clearfix">
                         <img v-bind:src="item.img" alt="" class="fl">
                         <div class="fl content">
@@ -36,12 +36,12 @@
                     </router-link>                
                 </li>
             </ul>
-          </v-scroll>
+          <!--</v-scroll>-->
     </div>
 </template>
 <script>
 import start from "../../common/start/start.vue";
-import scroll from "../../common/scroll/scroll.vue";
+// import scroll from "../../common/scroll/scroll.vue";
     export default {
         props: ["detail"],
         data () {

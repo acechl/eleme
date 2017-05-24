@@ -3,21 +3,9 @@
         <component v-bind:is="type" v-bind:addresses="address"></component>
         <div class="tab-bottom">
             <ul class="clearfix">
-                <li v-on:click="change">
-                    <span v-bind:class="{change:type == 'square'}" class="el-icon-setting"></span>
-                    <span>外卖</span>
-                </li>
-                <li v-on:click="change">
-                    <span v-bind:class="{change:type == 'square'}" class="el-icon-setting"></span>
-                    <span>搜索</span>
-                </li>
-                <li v-on:click="change">
-                    <span v-bind:class="{change:type == 'square'}" class="el-icon-setting"></span>
-                    <span>订单</span>
-                </li>
-                <li v-on:click="change">
-                    <span v-bind:class="{change:type == 'square'}" class="el-icon-setting"></span>
-                    <span>我的</span>
+                <li v-on:click="change($event,item.type)" ref="tab" v-for="item in tab">
+                    <span v-bind:class="{change:type == item.type}" class="el-icon-setting"></span>
+                    <span>{{item.name}}</span>
                 </li>
             </ul>
         </div>
@@ -27,17 +15,26 @@
 import square from  "./square/square"
 import self from "./self/self";
 import booking from "./booking/booking"
+import search from "./search/search"
 import Vue from "vue";
     export default {
         name: "tab",
         components: {
             "square": square,
-            "self": self
+            "self": self,
+            "search":search,
+            "booking": booking
         },
         data () {
             return {
                 type: "square",
-                address: ""
+                address: "",
+                tab: [
+                    {name:"外卖",type:"square"},
+                    {name:"搜索",type:"search"},
+                    {name:"订单",type:"booking"},
+                    {name:"我的",type:"self"}
+                ]
             }
         },
         created () {
@@ -45,16 +42,20 @@ import Vue from "vue";
             this.address = this.$route.params.address;
         },
         methods: {
-            change: function (e){
-                console.log(e.target); 
+            change: function (e,type){
+                this.type = type;
             }
         }
     }
 </script>
 <style lang="less" scoped>
+    .change {
+        color: #3190e8;
+    }
     .tab {
         position: relative;
         width: 100%;
+        height: 100%;
         .tab-bottom { 
             position: fixed;
             bottom: 0px;

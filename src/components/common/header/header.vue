@@ -24,6 +24,10 @@
              height: 40px;
              width: 100%;
              line-height: 40px;
+             position: fixed;
+             top: 0px;
+             left: 0px;
+             z-index: 10;
              span {
                 display: inline-block;
                  line-height: 40px;

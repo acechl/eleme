@@ -1,6 +1,6 @@
 <template>
    <div class="squareElse" ref="total">
-        <vue-header>
+        <vue-header class="header">
             <span slot="left" class="el-icon-arrow-left left" v-on:click="back"></span>
             <p slot="middle" class="middle">{{title}}</p>
         </vue-header>
