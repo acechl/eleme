@@ -2,8 +2,10 @@
     <div class="history">
         <div class="search clearfix">
             <div class="fl input">
-                <input type="text" placeholder="请输入商家或美食名称" v-on:input="input" v-model="values" v-on:focus="focus" v-on:blur="blur">
-                <span class="close" v-if="show" v-on:click="closed">x</span>
+                <!--<input type="text" placeholder="请输入商家或美食名称" v-on:input="input" v-model="values" v-on:focus="focus" v-on:blur="blur" required>
+                <span class="close" v-if="show" v-on:click="closed">x</span>-->
+                <input class="input" required type="text" placeholder="请输入商家或美食名称" v-model="values">
+                <span class="clear">x</span>
             </div>
             <button class="fl" v-on:click="submiting">提交</button>
         </div>
@@ -45,10 +47,15 @@
                 }
             },
             blur () {
+                setTimeout(function() {
+                    this.show = false;
+                },10);
                 this.show = false;
             },
             closed () {
+                console.log(this.values);
                 this.values = "";
+                this.show = false;
             },
             submiting () {
                 var historyS = localStorage.getItem("his") || [];
@@ -93,15 +100,22 @@
                     font-weight: 600;
                     border-radius: 3px;
                 }
-                .close {
+                input::-ms-clear {
+                    display: none;
+                }
+                input:valid,.clear {
+                    display: inline;
+                }
+                .clear {
+                    display: none;
                     position: absolute;
-                    right: 0.1rem;
                     font-size: 0.2rem;
-                    top: 0.05rem;
-                    width: 0.2rem;
-                    height: 0.2rem;
-                    line-height: 0.2rem;
-                    
+                    top: 0px;;
+                    width: 0.3rem;
+                    height: 0.3rem;
+                    line-height: 0.3rem;
+                    right: 0px;
+                    // background-color: #3190e8;
                 }
             }
             button {
