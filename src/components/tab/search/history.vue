@@ -7,14 +7,15 @@
             </div>
             <button class="fl" v-on:click="submiting">提交</button>
         </div>
-        <div class="his">
+        <div class="his" v-show="cleared">
             <div class="title">搜索历史</div>
             <ul>
-                <li v-for="(item,index) in his">
-                    <p>{{item.his}}</p>
-                    <span v-on:click="deleted(item.his)">x</span>
+                <li v-for="(item,index) in his" class="clearfix">
+                    <p class="fl">{{item.his}}</p>
+                    <span v-on:click="deleted(index)" class="fr">x</span>
                 </li>
             </ul>
+            <p class="clear" v-on:click="clear">清空历史记录</p>
         </div>
     </div>
 </template>
@@ -26,6 +27,7 @@
                 show: false,
                 values: "",
                 his: [],
+                cleared: false
             }
         },
         methods: {
@@ -45,39 +47,53 @@
                 }
             },
             blur () {
-                this.show = false;
+               setTimeout(()=>{
+                    this.show = false;
+               },10);
             },
             closed () {
                 this.values = "";
             },
             submiting () {
-                var historyS = localStorage.getItem("his") || [];
-                console.log(historyS);
-                historyS.push({his: this.values})
-                this.his = historyS;
-                console.log(historyS);
-                localStorage.setItem("his",historyS);
+                console.log(this.his);
+                this.his.push({his: this.values})
+                console.log(JSON.stringify(this.his));
+                localStorage.setItem("his",JSON.stringify(this.his));
+                this.values = "";
+                this.show = false;
+                this.cleared = true;
             },
-            deleted (type) {
-                var historyS = localStorage.getItem("his") || [];
-                historyS.forEach(function(value,index,arr){
-                    if(value.his == type){
-                        historyS.splice(index,1)
-                    }
-                })
-                this.his = historyS;
-                localStorage.setItem("his",historyS);
+            deleted (index) {
+                this.his.splice(index,1)
+                localStorage.setItem("his",JSON.stringify(this.his));
+                if(this.his.length == 0){
+                    this.cleared = false;
+                }
+            },
+            clear () {
+                console.log("deeie")
+                this.his = [];
+                localStorage.removeItem("his");
+                this.cleared = false;
             }
-        }
+        },
+        created () {
+            this.his = JSON.parse(localStorage.getItem("his")) || [];
+            if(this.his.length != 0){
+                this.cleared = true;
+            }
+        }        
+
     }
 </script>
 <style lang="less" scoped>
     .history {
-        background-color: #fff;
+        background-color: #f5f5f5;
         width: 100%;
-        padding: 3%;
         box-sizing: border-box;
         .search {
+            background-color: #fff;
+            padding: 20px 3%;
             .input {
                 position: relative;
                 width: 70%;
@@ -88,7 +104,7 @@
                     padding-left: 5px;
                     box-sizing: border-box;
                     border: 1px solid #e4e4e4;
-                    background-color: #f2f2f2;
+                    background-color: #fff;
                     color: #666;
                     font-weight: 600;
                     border-radius: 3px;
@@ -113,6 +129,45 @@
                 box-sizing: border-box;
                 font-weight: 600;
                 border-radius: 3px;
+            }
+        }
+        .his {
+             .title {
+                padding: 0 3%;
+                color: #666;
+                height: 40px;
+                line-height: 40px;
+                text-align: left;
+                font-size: 14px;
+                font-weight: 600;
+            }
+            ul {
+                background-color: #fff;
+                li {
+                    padding: 0 3%;
+                    height: 40px;
+                    border-bottom: 1px solid #f5f5f5;
+                    font-size: 14px;
+                    p {
+                        line-height: 40px;
+                        height: 40px;
+                        margin: 0;
+                    }
+                    span {
+                        height: 40px;
+                        line-height: 40px;
+                        font-size: 18px;
+                    }
+                }
+            }
+            .clear {
+                height: 40px;
+                line-height: 40px;
+                margin: 0;
+                color: #3190e8;
+                font-size: 16px;
+                font-weight: 600;
+
             }
         }
     }

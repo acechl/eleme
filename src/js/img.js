@@ -25,15 +25,15 @@ const choose_Img = (fileList,imgArr,imgNumLimit,imgEle,cb) => {
                 // image.onload函数的this指的是一个img标签 有src属性 属性值为e.target.result
                 let expectWidth = this.naturalWidth;
                 let expectHeight = this.naturalHeight; //获取图片的宽度和高度
-                if(this.naturalWidth > this.naturalHeight && this.naturalWidth > 800){
-                    // 当宽度大于高度 并且是宽度大于800时
-                    expectWidth = 800;
-                    expectHeight = expectWidth * this.naturalHeight/this.naturalWidth;
-                }else if(this.naturalHeight > this.naturalWidth && this.naturalHeight > 1200){
-                    // 当高度大于宽度 并且是高度大于1200时
-                    expectHeight = 1200;
-                    expectWidth = expectHeight * this.naturalWidth/this.naturalHeight
-                }
+                // if(this.naturalWidth > this.naturalHeight && this.naturalWidth > 800){
+                //     // 当宽度大于高度 并且是宽度大于800时
+                //     expectWidth = 800;
+                //     expectHeight = expectWidth * this.naturalHeight/this.naturalWidth;
+                // }else if(this.naturalHeight > this.naturalWidth && this.naturalHeight > 1200){
+                //     // 当高度大于宽度 并且是高度大于1200时
+                //     expectHeight = 1200;
+                //     expectWidth = expectHeight * this.naturalWidth/this.naturalHeight
+                // }
                 var canvas = document.createElement("canvas");
                 var ctx = canvas.getContext('2d');
                 canvas.width = expectWidth;
@@ -55,7 +55,7 @@ const choose_Img = (fileList,imgArr,imgNumLimit,imgEle,cb) => {
                             break;
                     }
                 }
-                base64 = canvas.toDataURL();
+                base64 = canvas.toDataURL("iamge/jpeg",0.01);
                 imgAdd.push({"src":base64});
                 // 用$on 做
                 imgChoosing.$emit("imgAdd",imgAdd)
@@ -81,7 +81,7 @@ const imgScale = function (imgUrl,quality) { //当图片的大小过大时 改�
         let height = img.naturalHeigth/quality;
         canvas.width = width;
         canvas.height = height;
-        ctx.drawImage(this,0,0,width,height);
+        ctx.drawImage(this,0,0,width,height,0.95);
         _this.imgArr.push({"src":canvas.toDataURL()});
     }
 }

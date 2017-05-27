@@ -9,8 +9,10 @@
             <div class="user" v-if="login">
                 <div class="use">
                     <img v-bind:src="pictureUrl" alt="">
+                    <img v-bind:src="item.src" alt="" v-for="item in images">
                     <span class="name">用户名:{{userName}}</span>
-                    <input type="file" name="" id="" v-on:change="chooseImg($event)" accept="image/jpg,image/png,image/jpeg" multiple>
+                    <input type="file" name="" id="" v-on:change="chooseImg($event)" accept="image/*"/>
+                    <!--<input type="file" class="" name="upload-file" id="upload-file" accept="image/*"/>-->
                 </div>
                 <router-link to="./account"class="el-icon-arrow-right"></router-link>
                 
@@ -28,6 +30,7 @@
 import {mapState,mapMutations} from "vuex";
 import img from "../../../js/img.js";
 import {imgChoosing} from "../../../js/common.js";
+import EXIF from "exif-js";
     export default {
         name: "self",
         data: function () {
@@ -37,7 +40,8 @@ import {imgChoosing} from "../../../js/common.js";
                 imgArr: [],
                 imgEle: "",
                 imgUrl: "",
-                change: false
+                change: false,
+                images: []
             }
         },
         computed: {
@@ -54,10 +58,21 @@ import {imgChoosing} from "../../../js/common.js";
         },
         methods: {
             chooseImg: function (event) {
-               console.log( event.currentTarget.value);
-               console.log(event.target.files);
+                var _this = this;
+                let Orientation;
                var fileList = event.target.files;
-               var _this = this;
+               for(var i=0;i<fileList.length;i++){
+                   EXIF.getData(fileList[i],function(){
+                       Orientation = EXIF.getTag(fileList[i],"Orientation")
+                   })
+                   var reader = new FileReader();
+                   reader.readAsDataURL(fileList[i]);
+                   reader.onload = function (e) {
+                        _this.images.push({
+                            src: e.target.result
+                        })
+                   }
+               }
             //    方法1：用回调函数
                 // img.choose_Img(fileList,this.imgArr,this.imgNumLimit,this.imgEle,function(imgAdd){
                     // _this.$store.commit("pictureUrl",{
@@ -65,12 +80,12 @@ import {imgChoosing} from "../../../js/common.js";
                     // })
                 // })
                 // 方法2： 用非父子组件通信
-                 img.choose_Img(fileList,this.imgArr,this.imgNumLimit,this.imgEle)
-                 imgChoosing.$on("imgAdd",function(obj){
-                    _this.$store.commit("pictureUrl",{
-                        pictureUrl: obj[0].src
-                    })
-                })
+                //  img.choose_Img(fileList,this.imgArr,this.imgNumLimit,this.imgEle)
+                //  imgChoosing.$on("imgAdd",function(obj){
+                //     _this.$store.commit("pictureUrl",{
+                //         pictureUrl: obj[0].src
+                //     })
+                // })
             },
         }
     }
