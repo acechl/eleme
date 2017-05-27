@@ -2,7 +2,7 @@
     <div class="square overflow">
         <vue-header>
             <router-link slot="left" to="/search" class="el-icon-search fl left"></router-link>
-            <div slot="middle" class="fl middle">{{addresses}}</div>
+            <div slot="middle" class="fl middle">{{addressimg}}</div>
             <div slot="right">
                 <router-link v-if="isLogin" class="el-icon-setting fr right" to="/self"></router-link>
                 <div class="fr right" v-else>
@@ -59,7 +59,7 @@
             swiperSlider,
             start
         },
-        props: ["addresses"],
+        props: ["addressing"],
         data: function () {
             return {
                 addresses: "",

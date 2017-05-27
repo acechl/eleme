@@ -1,9 +1,8 @@
 <template>
     <div class="shopDetail">
         <h6>附近商家</h6>
-        <!--   <v-scroll :on-refresh="onRefresh" :on-infinite="onInfinite" :dataList="scrollData">-->
-             <ul>
-                <li v-for="(item,index) in detail">
+             <ul v-on:touchstart="touchStart($event)" v-on:touchend="touchEnd($event)">
+                <li v-for="(item,index) in listData" >
                     <router-link to="squareDetail" class="clearfix">
                         <img v-bind:src="item.img" alt="" class="fl">
                         <div class="fl content">
@@ -36,63 +35,50 @@
                     </router-link>                
                 </li>
             </ul>
-          <!--</v-scroll>-->
+            <div class="loading" v-show="loading">正在加载</div>
     </div>
 </template>
 <script>
 import start from "../../common/start/start.vue";
-// import scroll from "../../common/scroll/scroll.vue";
+import Vue from "vue";
     export default {
         props: ["detail"],
         data () {
             return {
-                counter: 1, //默认已经显示出15条数据 count等于1时让从16条开始加载
-                num: 5, //一次显示的条数
-                pageStart: 0, //开始的页数
-                pageEnd: 0,//结束的页数
-                listData: [], //下拉更新数据存放数组
-                scrollData: {
-                   noFlag: false //暂时无更多数据显示
-               }
+                num: 5,
+                listData: [], 
+                page: 0,
+                loading: true,
+                previous: "",
+                plus: ""
             }
         },
-        mounted: function () {
-            this.getList();
-        },
         methods: {
-            getList: function () {
-                this.listData = this.detail.slice(0,this.num);
+            getList: function (page) {
+                return this.detail.slice(page,this.num+page);
             },
-            onRefresh(done) {
-                this.getList();
-                done();
+            touchStart (e) {
+               this.previous = e.changedTouches[0].clientY;
             },
-            onInfinite (done) {
-                console.log("下拉");
-                var page = this.counter
-                this.counter ++;
-                let end = this.pageEnd = this.num * this.counter;
-                let i = this.pageStart = this.pageEnd - this.num;
-                let more = this.$el.querySelector(".load-more");
-                for(i;i<end;i++){
-                   if(i>=30){
-                        more.style.display = "none";
-                        this.scrollData.noFlag = true;
-                        break;
-                   }else {
-                       console.log("ddd",this.detail.slice(this.num*page,this.num));
-                       this.listData.concat(this.detail.slice(this.num*page,this.num))
-                       console.log("eeee",this.listData);
-                       more.style.display = "none";
-                   }
+            touchEnd (e) {
+                if(this.previous < e.changedTouches[0].clientY) {
+                    return;
                 }
-                done();
-
+                this.plus = this.plus - e.changedTouches[0].clientY + this.previous;
+                if(this.plus > 100){
+                    this.page = this.page + 5;
+                    this.loading = true;
+                    setTimeout(()=> {
+                        let items = this.getList(this.page)
+                    this.listData = this.listData.concat(items);
+                    this.plus = 0
+                    },2000)
+                }
+                // this.loading = false;
             }
         },
         components: {
             "star":start,
-            "v-scroll": scroll
         },
         created () {
             this.detail.forEach(function(value,index,array){
@@ -100,6 +86,8 @@ import start from "../../common/start/start.vue";
                     value.title = value.title.substr(0,11)+"...";
                 }
             })
+             this.listData = this.getList(0);
+             console.log(this.detail)
         }
     }
 </script>
@@ -202,6 +190,12 @@ import start from "../../common/start/start.vue";
                     }
                 }
             }
+        }
+        .loading {
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: #666;
         }
     }
 </style>

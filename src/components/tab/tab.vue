@@ -1,6 +1,6 @@
 <template>
     <div class="tab overflow">
-        <component v-bind:is="type" v-bind:addresses="address"></component>
+        <component v-bind:is="type" v-bind:addressing="address"></component>
         <div class="tab-bottom">
             <ul class="clearfix">
                 <li v-on:click="change($event,item.type)" ref="tab" v-for="item in tab">
@@ -56,6 +56,7 @@ import Vue from "vue";
         position: relative;
         width: 100%;
         height: 100%;
+        margin-bottom: 50px;
         .tab-bottom { 
             position: fixed;
             bottom: 0px;
