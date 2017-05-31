@@ -1,7 +1,7 @@
 import EXIF from "exif-js";
 import {md5} from "./utlis.js"
 import {imgChoosing} from "./common.js"
-const choose_Img = (fileList,imgArr,imgNumLimit,imgEle,cb) => {
+const choose_Img = (fileList,imgArr,imgNumLimitst,imgEle,cb) => {
     let imgAdd = [];
     let base = "";
     let imgNum = fileList.length; //图片选择的张数

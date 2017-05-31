@@ -1,9 +1,10 @@
 <template>
     <div class="shopDetail">
         <h6>附近商家</h6>
-             <ul v-on:touchstart="touchStart($event)" v-on:touchend="touchEnd($event)">
-                <li v-for="(item,index) in listData" >
-                    <router-link to="squareDetail" class="clearfix">
+        <div class="fresh" v-show="fresh">正在刷新...</div>
+             <ul>
+                <li v-for="(item,index) in detail" >
+                    <router-link to="/squareDetail" class="clearfix">
                         <img v-bind:src="item.img" alt="" class="fl">
                         <div class="fl content">
                             <div class="top clearfix">
@@ -35,20 +36,20 @@
                     </router-link>                
                 </li>
             </ul>
-            <div class="loading" v-show="loading">正在加载</div>
+            <div class="loading" v-show="load">正在加载</div>
+            <div class="loading" v-show="more">没有更多数据了喔</div>
     </div>
 </template>
 <script>
 import start from "../../common/start/start.vue";
 import Vue from "vue";
     export default {
-        props: ["detail"],
+        props: ["detail","load","more","fresh"],
         data () {
             return {
                 num: 5,
                 listData: [], 
                 page: 0,
-                loading: true,
                 previous: "",
                 plus: ""
             }
@@ -57,37 +58,9 @@ import Vue from "vue";
             getList: function (page) {
                 return this.detail.slice(page,this.num+page);
             },
-            touchStart (e) {
-               this.previous = e.changedTouches[0].clientY;
-            },
-            touchEnd (e) {
-                if(this.previous < e.changedTouches[0].clientY) {
-                    return;
-                }
-                this.plus = this.plus - e.changedTouches[0].clientY + this.previous;
-                if(this.plus > 100){
-                    this.page = this.page + 5;
-                    this.loading = true;
-                    setTimeout(()=> {
-                        let items = this.getList(this.page)
-                    this.listData = this.listData.concat(items);
-                    this.plus = 0
-                    },2000)
-                }
-                // this.loading = false;
-            }
         },
         components: {
             "star":start,
-        },
-        created () {
-            this.detail.forEach(function(value,index,array){
-                if(value.title.length >= 10) {
-                    value.title = value.title.substr(0,11)+"...";
-                }
-            })
-             this.listData = this.getList(0);
-             console.log(this.detail)
         }
     }
 </script>
@@ -194,6 +167,12 @@ import Vue from "vue";
         .loading {
             height: 30px;
             line-height: 30px;
+            text-align: center;
+            color: #666;
+        }
+        .fresh {
+            height: 40px;
+            line-height: 40px;
             text-align: center;
             color: #666;
         }

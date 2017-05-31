@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </div>
-            <shopDetail v-bind:detail="details"></shopDetail>
+                <shopDetail v-bind:detail="detail" v-bind:more="more" v-bind:loading="loading" v-bind:fresh="fresh"></shopDetail>
         </div>
          <div class="bg" ref="bg"></div>
     </div>
@@ -76,19 +76,15 @@ import shopDetail from "../../common/shopDetail/shopDetail"
             "vue-header": header,
             "shopDetail": shopDetail
         },
-        props: ["title"],
+        props: ["title","loading","more","detail","fresh"],
          data () {
             return {
-                title: "",
                 type: "",
                 types: "",
                 num: "",
                 numArray: [],
                 previous: "",
                 selected: "",
-                details: [
-                    {"img":"../../../../static/imgs/m1.jpeg",}
-                ],
                 tab: [
                     {name:this.title,type:"classify",color: "#bbb",classes: "el-icon-caret-bottom"},
                     {name:"排序",type:"rank",color:"#bbb",classes: "el-icon-caret-bottom"},
@@ -139,23 +135,7 @@ import shopDetail from "../../common/shopDetail/shopDetail"
                     {name:"在线支付",logo:"付"},
                     {name:"准时达",logo:"准"}
                 ],
-                 details: [
-                   {"img":"../../../../static/imgs/m1.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":2.2,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":1,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m2.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":0.3,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                    {"img":"../../../../static/imgs/m3.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":3.4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m4.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4.5,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m1.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":5,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m2.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m3.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m4.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m1.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m2.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/m3.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m4.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m1.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m2.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m3.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33}
-                 ]
+                
             }
         },
         methods : {
@@ -250,7 +230,7 @@ import shopDetail from "../../common/shopDetail/shopDetail"
                 this.$refs.p.style.borderColor = "rgb(102, 102, 102)";
                 this.$refs.p.style.color = "#666";
                 this.$refs.p.style.backgroundColor = "#fff";
-             }
+             },
         },
         created () {
            this.types = this.type + "全部";
@@ -317,6 +297,12 @@ import shopDetail from "../../common/shopDetail/shopDetail"
             background-color: rgba(0,0,0,0.2);
         }
         .tab {
+            position: fixed;
+            top: 40px;
+            left: 0px;
+            background-color: #fff;
+            width: 100%;
+            z-index: 3;
             ul {
                 border-bottom: 1px solid #eee;
                 height: 40px;

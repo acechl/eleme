@@ -2,10 +2,8 @@
     <div class="history">
         <div class="search clearfix">
             <div class="fl input">
-                <!--<input type="text" placeholder="请输入商家或美食名称" v-on:input="input" v-model="values" v-on:focus="focus" v-on:blur="blur" required>
-                <span class="close" v-if="show" v-on:click="closed">x</span>-->
-                <input class="input" required type="text" placeholder="请输入商家或美食名称" v-model="values">
-                <span class="clear">x</span>
+                <input type="text" placeholder="请输入商家或美食名称" v-on:input="input" v-model="values" v-on:focus="focus" v-on:blur="blur" required>
+                <span class="close" v-on:click="closed" v-if="show">x</span>
             </div>
             <button class="fl" v-on:click="submiting">提交</button>
         </div>
@@ -51,14 +49,9 @@
             blur () {
                setTimeout(()=>{
                     this.show = false;
-               },10);
-                setTimeout(function() {
-                    this.show = false;
-                },10);
-                this.show = false;
+               },300);
             },
             closed () {
-                console.log(this.values);
                 this.values = "";
                 this.show = false;
             },
@@ -121,11 +114,7 @@
                 input::-ms-clear {
                     display: none;
                 }
-                input:valid,.clear {
-                    display: inline;
-                }
-                .clear {
-                    display: none;
+                .close {
                     position: absolute;
                     font-size: 0.2rem;
                     top: 0px;;
@@ -133,7 +122,6 @@
                     height: 0.3rem;
                     line-height: 0.3rem;
                     right: 0px;
-                    // background-color: #3190e8;
                 }
             }
             button {
@@ -175,15 +163,6 @@
                         font-size: 18px;
                     }
                 }
-            }
-            .clear {
-                height: 40px;
-                line-height: 40px;
-                margin: 0;
-                color: #3190e8;
-                font-size: 16px;
-                font-weight: 600;
-
             }
         }
     }
