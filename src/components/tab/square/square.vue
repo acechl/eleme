@@ -2,7 +2,7 @@
     <div class="square overflow">
         <vue-header>
             <router-link slot="left" to="/search" class="el-icon-search fl left"></router-link>
-            <div slot="middle" class="fl middle">{{addresses}}</div>
+            <div slot="middle" class="fl middle">{{addressing}}</div>
             <div slot="right">
                 <router-link v-if="isLogin" class="el-icon-setting fr right" to="/self"></router-link>
                 <div class="fr right" v-else>
@@ -35,8 +35,9 @@
                 <div class="swiper-pagination"  slot="pagination"></div>
             </swiper>
         </div>
-        <shopDetail v-bind:detail="details"></shopDetail>
-        <start></start>
+        <div v-on:touchend="touchEnd($event)" v-on:touchstart="touchStart($event)">
+            <shopDetail v-bind:detail="detail" v-bind:more = "more" v-bind:load="loading" v-bind:fresh="fresh"></shopDetail>
+        </div>
         <div class="css" transition="loading"></div>
         <div class="bg"></div>
     </div>
@@ -59,7 +60,7 @@
             swiperSlider,
             start
         },
-        props: ["addresses"],
+        props: ["addressing"],
         data: function () {
             return {
                 addresses: "",
@@ -107,17 +108,46 @@
                    {"img":"../../../../static/imgs/m4.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
                    {"img":"../../../../static/imgs/m1.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
                    {"img":"../../../../static/imgs/m2.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/m3.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                   {"img":"../../../../static/imgs/m3.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
                    {"img":"../../../../static/imgs/m4.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
                    {"img":"../../../../static/imgs/m1.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
                    {"img":"../../../../static/imgs/m2.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
                    {"img":"../../../../static/imgs/m3.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33}
-               ]
+               ],
+               page: 0,
+               num: 5,
+               detail: [],
+               loading: false,
+               more: false,
+               fresh: false,
+               start: 0
             }
         },
         methods: {
             shopDetail: function (start) {
                 this.detail = this.details.slice(start,4)
+            },
+            getList: function (page) {
+                return this.details.slice(0,this.num+page);
+            },
+            touchStart (e) {
+                this.start = e.currentTarget.scrollTop;
+            },
+            touchEnd (e) {
+                if(this.loading == true){
+                    return;
+                }
+                if(e.currentTarget.scrollTop + e.currentTarget.offsetHeight >= e.currentTarget.scrollHeight-300){
+                    this.loading = true;
+                    this.page = this.page + 5;
+                    if(this.details.slice(this.page,this.num+this.page).length == 0) {
+                        this.loading = false;
+                        this.more = true;
+                        return;
+                    }
+                    this.detail = this.getList(this.page);
+                    this.loading = false;
+                }
             }
         },
         computed: {
@@ -129,8 +159,13 @@
             }
         },
         created () {
-            // this.address = this.$route.params.addressing;
+             this.details.forEach(function(value,index,array){
+                if(value.title.length >= 10) {
+                    value.title = value.title.substr(0,11)+"...";
+                }
+            })
             this.shopDetail(0);
+            this.detail = this.getList(this.page);
 
         },
         mounted () {

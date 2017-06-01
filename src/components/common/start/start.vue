@@ -9,6 +9,7 @@
 </template>
 <style lang="less" scoped>
     .start {
+        background-color: #fff;
         span {
             width: 0.12rem;
             height: 0.12rem;

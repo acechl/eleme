@@ -27,10 +27,15 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src')
-    }
+    },
+    // fallback: [path.join(__dirname,"./node_modules")]
   },
   module: {
     rules: [
+      {
+        test: /vue-scroller.src.*?js$/,
+        loader: "babel"
+      },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
