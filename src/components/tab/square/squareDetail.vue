@@ -8,7 +8,7 @@
                     <h4>{{item.titles}}</h4>
                     <div class="fare clearfix">
                         <div class="fl">
-                            商家配送/{{item.timer}}分钟送达/配送费￥{{item.fare}}
+                            商家配送 / {{item.timer}}分钟送达 / 配送费￥{{item.fare}}
                         </div>
                         <div class="fr el-icon-arrow-right"></div>
                     </div>
@@ -17,13 +17,13 @@
                     </div>
                 </div>
             </div>
-            <div class="bottom">
+            <div class="bottom clearfix">
                 <div class="fl">{{item.new}}</div>
                 <div class="fr">{{item.activity}}个活动</div>
             </div>
         </div>
         <div class="tab">
-            <ul>
+            <ul class="clearfix">
                 <li>商品</li>
                 <li>评价</li>
             </ul>
@@ -249,7 +249,9 @@ import start from "../../common/start/start"
 </script>
 <style lang="less" scoped>
     .squareDetail {
+        width: 100%;
         .shopDetail {
+            width: 100%;
             background-color: green;
             padding: 0 0.1rem;
             box-sizing: border-box;
@@ -266,6 +268,7 @@ import start from "../../common/start/start"
             }
             .content {
                 position: relative;
+                width: 100%;
                 img {
                     width: 0.6rem;
                     height: 0.6rem;
@@ -275,7 +278,8 @@ import start from "../../common/start/start"
                 }
                 .right{
                     width: 100%;
-                    padding-left: 0.7rem;
+                    padding-left:0.7rem;
+                    padding-right: 0.1rem;
                     box-sizing: border-box;
                     color: #fff;
                     h4 {
@@ -286,17 +290,39 @@ import start from "../../common/start/start"
                     .fare,.warm {
                         font-size: 0.12rem;
                         line-height: 0.2rem;
-                        text-aling: left;
+                        text-align: left;
                     }
                     .warm {
-                        width: 100%;
+                        white-space: nowrap;
                         overflow:hidden;
                         text-overflow: ellipsis;
-                        white-space: nowarp;
                     }
                 }
 
             }
+            .bottom {
+                margin-top: 10px;
+                margin-bottom: 8px;
+                font-size: 0.12rem;
+                color: #fff;
+            }
+        }
+        .tab {
+            width: 100%;
+            position: fixed;
+            left: 0px;
+            ul {
+                li {
+                    float: left;
+                    width: 50%;
+                    text-align: center;
+                    height: 50px;
+                    line-height: 50px;
+                }
+            }
+        }
+        .tabContent {
+            // padding-top:
         }
     }
 </style>
