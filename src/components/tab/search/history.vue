@@ -56,9 +56,7 @@
                 this.show = false;
             },
             submiting () {
-                console.log(this.his);
                 this.his.push({his: this.values})
-                console.log(JSON.stringify(this.his));
                 localStorage.setItem("his",JSON.stringify(this.his));
                 this.values = "";
                 this.show = false;

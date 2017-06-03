@@ -292,7 +292,7 @@ import start from "../../common/start/start"
                         width: 100%;
                         overflow:hidden;
                         text-overflow: ellipsis;
-                        white-space: nowarp;
+                        white-space: nowrap;
                     }
                 }
 
