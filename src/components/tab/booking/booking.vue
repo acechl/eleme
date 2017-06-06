@@ -91,6 +91,7 @@ import header from "../../common/header/header"
                     this.load = false;
                     //上拉
                     if(e.currentTarget.scrollTop <=0){//当达到顶端时
+                        console.log("到达顶端");
                         if(this.fresh == true){
                             return;
                         }

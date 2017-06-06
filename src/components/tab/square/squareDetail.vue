@@ -20,26 +20,26 @@
             <div class="bottom clearfix">
                 <div class="fl">{{item.new}}</div>
                 <div class="fr">{{item.activity}}个活动</div>
-            </div>
+            </div> 
         </div>
         <div class="tab">
-            <ul class="clearfix">
-                <li>商品</li>
-                <li>评价</li>
-            </ul>
+                <ul class="clearfix">
+                    <li v-bind:class="{'selected':type=='shop'}"><a href="javascript:;">商品</a></li>
+                    <li v-bind:class="{'selected':type=='evaluate'}"><a href="javascript:;">评价</a></li>
+                </ul>
         </div>
         <div class="tabContent">
-            <div class="goods" v-for="item in shopDetail">
+            <div class="goods" v-for="item in shopDetail" v-bind:class="{'none':type!='shop','block':type=='shop'}">
                 <div class="fl">
                     <ul>
-                        <li v-for="em in item.classify">
+                        <li v-for="em in item.classify" v-bind:class="{'choosed':types==em.id}">
                             <a v-bind:href="'#'+em.id">{{em.name}}</a>
                         </li>
                     </ul>
                 </div>
                 <div class="fr">
                     <ul>
-                     <li v-for="itemes in item.contents" v-bind:src="itemes.id">
+                     <li v-for="itemes in item.contents" v-bind:id="itemes.id" v-bind:name="itemes.id">
                         <h6>{{itemes.name}}</h6>
                         <div v-for="im in itemes.goods">
                             <img v-bind:src="im.img" alt="">
@@ -60,7 +60,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="evaluate" v-for="item in evaluate">
+            <div class="evaluate" v-for="item in evaluate" v-bind:class="{'none':type!='evaluate','block':type =='evaluate'}">
                 <div class="score">
                     <div class="fl">
                         <h3>{{item.total}}</h3>
@@ -122,6 +122,8 @@ import start from "../../common/start/start"
         name: "squareDetail",
         data () {
             return {
+                type:"shop",
+                types: "id0",
                 evaluate: [
                     {attitude: 3.4,menus: 4.3,timer: 33,total: 3.8,higher: "33.3%",
                         classify: [
@@ -250,14 +252,26 @@ import start from "../../common/start/start"
 <style lang="less" scoped>
     .squareDetail {
         width: 100%;
+        margin-top: -50px;
+        .selected a{
+            color: #3190e8;
+            display: inline-block;
+            border-bottom: 2px solid #3190e8;
+            height: 30px;
+            line-height: 30px;
+            margin-top: 0px;
+        }
+        .none {
+            display: none;
+        }
+        .block {
+            display: block;
+        }
         .shopDetail {
             width: 100%;
             background-color: green;
-            padding: 0 0.1rem;
+            padding: 0.1rem;
             box-sizing: border-box;
-            position: fixed;
-            top: 0px;
-            left: 0px;
             .back {
                 width: 100%;
                 height: 40px;
@@ -296,10 +310,6 @@ import start from "../../common/start/start"
                         white-space: nowrap;
                         overflow:hidden;
                         text-overflow: ellipsis;
-<<<<<<< HEAD
-                        white-space: nowrap;
-=======
->>>>>>> 4ce4f6b5dccb0fd9ebb9390be45885cb10b1e803
                     }
                 }
 
@@ -313,20 +323,40 @@ import start from "../../common/start/start"
         }
         .tab {
             width: 100%;
-            position: fixed;
-            left: 0px;
+            border-bottom: 1px solid #eee;
             ul {
                 li {
                     float: left;
                     width: 50%;
                     text-align: center;
-                    height: 50px;
-                    line-height: 50px;
+                    height: 40px;
+                    line-height: 40px;
+                    padding-bottom: 5px;
                 }
             }
         }
         .tabContent {
             // padding-top:
+            .goods {
+                .fl {
+                    ul {
+                        width: 1rem;
+                        background-color: #f8f8f8;
+                        .choosed {
+                            background-color: #fff;
+                            border-left: 2px solid #3190e8;
+                        }
+                        li {
+                            width: 100%;
+                            text-align: center;
+                            height: 40px;
+                            line-height: 40px;
+
+                        }
+                    }
+                }
+            }
         }
+
     }
 </style>
