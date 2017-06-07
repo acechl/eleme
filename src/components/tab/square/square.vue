@@ -1,5 +1,5 @@
 <template>
-    <div class="square overflow">
+    <div class="square">
         <vue-header>
             <router-link slot="left" to="/search" class="el-icon-search fl left"></router-link>
             <div slot="middle" class="fl middle">{{addressing}}</div>

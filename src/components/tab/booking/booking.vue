@@ -1,5 +1,5 @@
 <template>
-    <div class="booking overflow" v-on:touchstart="touchStart($event)" v-on:touchend="touchEnd($event)" v-on:touchmove="touchMove($event)">
+    <div class="booking" v-on:touchstart="touchStart($event)" v-on:touchend="touchEnd($event)" v-on:touchmove="touchMove($event)">
         <vue-header>
             <span slot="left" class="left el-icon-arrow-left"></span>
             <span slot="middle" class="middle">订单详情</span>

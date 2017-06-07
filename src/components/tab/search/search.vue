@@ -1,5 +1,5 @@
 <template>
-    <div class="search overflow" v-on:touchstart="touchStart($event)" v-on:touchmove="touchMove($event)" v-on:touchend="touchEnd($event)">
+    <div class="search" v-on:touchstart="touchStart($event)" v-on:touchmove="touchMove($event)" v-on:touchend="touchEnd($event)">
         <vue-header>
             <span class="left el-icon-arrow-left" slot="left" v-on:click="back"></span>
             <span class="middle" slot="right">搜索</span>
