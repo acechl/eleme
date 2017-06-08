@@ -52,8 +52,9 @@
                                 </div>
                                 <div class="price clearfix">
                                     <span class="fl">￥{{im.price}}</span>
-                                    <span class="fr" v-on:click="addMenu(im.price,im.title)">+</span>
-                                    <!--<span class="fl" v-show="">-</span>-->
+                                    <span class="delete" v-if="im.delete" v-on:click="deleteMenu(im.price,im.title)">-</span>
+                                    <span class="number" v-if="im.delete">{{im.num}}</span>
+                                    <span class="" v-on:click="addMenu(im.price,im.title)">+</span>
                                 </div>
                             </div>
                        </div>
@@ -121,12 +122,15 @@
                 <div class="food">￥{{price}}</div>
                 <div class="send">配送费￥{{send}}</div>
             </div>
-            <div class="pay fr">去结算</div>
+            <div class="pay fr" v-bind:class="{'goPay':goPay==true}" v-on:click="payNow">
+               去结算
+            </div>
         </div>
     </div>
 </template>
 <script>
-import start from "../../common/start/start"
+import start from "../../common/start/start";
+import {payNow} from "../../../js/common.js"
     export default {
         name: "squareDetail",
         data () {
@@ -135,7 +139,10 @@ import start from "../../common/start/start"
                 types: "id0",
                 send:0,
                 price: 0,
+                agian: false,
                 menu: [],
+                goPay: false,
+                urlPath: "",
                 evaluate: [
                     {attitude: 3.4,menus: 4.3,timer: 33,total: 3.8,higher: "33.3%",
                         classify: [
@@ -229,43 +236,56 @@ import start from "../../common/start/start"
                         {name: "绿豆海带糖水",id:"id12"} 
                     ],contents: [
                         {name:"戚风蛋糕",id: "id0",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新1",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33}
+                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新1",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete:false,num:0},
+                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮1",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]},
                         {name: "蔓越莓曲奇",id: "id1",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新2",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33}
+                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新2",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮2",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]},
                         {name:"双皮奶",id: "id2",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新3",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33}
+                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新3",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮3",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]},
                         {name: "意大利面",id: "id3",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新4",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33}
+                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新4",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮4",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]},
                         {name: "pizza",id:"id4",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新5",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33}
+                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新5",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮5",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]},
                         {name: "泡芙",id:"id5",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新6",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33}
+                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新6",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮6",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]},
                         {name: "蛋挞",id: "id6",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新7",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33}
+                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新7",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮7",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]},
                         {name: "豆沙面包",id:"id7",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新8",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33}
+                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新8",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮8",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]},
                         {name: "寿司",id:"id8",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新9",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33}
+                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新9",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false},
+                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮9",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]} ,
                         {name: "番茄炒蛋",id:"id9",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新10",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33}
+                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新10",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮10",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]} ,
                         {name: "茶树菇炒牛肉",id:"id10",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新11",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33}
+                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新11",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮11",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]} ,
                         {name: "梅菜蒸猪肉",id:"id11",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新12",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33}
+                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新12",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮12",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]} ,
                         {name: "绿豆海带糖水",id:"id12",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新13",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33}
+                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新13",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮13",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]}  
                     ]}
                 ]
@@ -279,29 +299,101 @@ import start from "../../common/start/start"
         components: {
             "start": start
         },
+        computed: {
+            login () {
+                return this.$store.state.isLogin;
+            }
+        },
         methods: {
             addMenu (price,title) {
                 this.price = this.price + price;
-                if(this.menu.length ==0) {
-                    this.menu.push({titles:title,qua:1});
-                    console.log("000",this.menu);
-                }else {
-                    var again = true;
-                    this.menu.forEach((value,index,arr)=>{
-                        if(value.titles == title){
-                            again = false;
-                            value.qua = value.qua + 1;
-                            console.log("the same",this.menu);
+                this.shopDetail[0].contents.forEach((value,index,arr)=>{ 
+                    value.goods.forEach((values,indexs,array)=>{
+                        if(values.title == title){
+                            values.delete = true;
                         }
                     })
-                    if(again == true){
-                        this.menu.push({titles:title,qua:1});
-                        console.log("not the same",this.menu);
-                    }
+                })
+                if(this.menu.length ==0 || this.again == true) {
+                    this.menu.push({titles:title,qua:1,price:price});
+                }else {
+                    this.again = true;
+                    this.menu.forEach((value,index,arr)=>{
+                        if(value.titles == title){
+                            this.again = false;
+                            value.qua = value.qua + 1;
+                        }
+                    })
+                    // if(again == true){
+                    //     this.menu.push({titles:title,qua:1,price:price});
+                    // }
                 }
+                this.colorChange();
+                this.sendFare();
+                this.number();
+            },
+            deleteMenu (price,title) {
+                this.price = this.price - price;
+                this.menu.forEach((value,index,arr)=>{
+                    if(value.titles == title){
+                        value.qua --;
+                    }
+                    if(value.qua == 0){
+                        arr.splice(index,1);
+                        this.shopDetail[0].contents.forEach((value1,index1,arr1)=>{
+                            value1.goods.forEach((value2,index2,arr2)=>{
+                                if(value.titles == value2.title){
+                                    value2.delete = false;
+                                    value2.num = 0;
+                                }
+                            })
+                        })
+                    }
+                })
+                this.colorChange();
+                this.sendFare();
+                this.number();
+            },
+            number () {
+                var _this = this;
+                this.menu.forEach((value,index,arr)=>{
+                    _this.shopDetail[0].contents.forEach((value1,index1,arr1)=>{
+                        value1.goods.forEach((value2,index2,arr2)=>{
+                            if(value.titles == value2.title){
+                                value2.num = value.qua;
+                            }
+                        })
+                    })
+                })
+            },
+            sendFare () {
                 if(this.price >= this.shopDetail[0].min){
                     this.send = 0;
+                }else {
+                    this.send = this.shopDetail[0].send
                 }
+            },
+            colorChange () {
+                console.log(this.menu);
+                if(this.menu.length != 0){
+                    this.goPay = true;
+                }else {
+                    this.goPay = false;
+                }
+            },
+            payNow () {
+                if(this.goPay == false){
+                    return;
+                }
+                payNow.$emit("menu",this.menu);
+                payNow.$emit("shopName",this.shopDetail[0].titles)
+                this.$router.push({path:"register"})
+                // if(this.login == false) {
+                //     this.$router.push({path:"register"})
+                    
+                // }else {
+                //     this.$router.push({path:"goPay"})
+                // }
             }
         }
     }
@@ -330,6 +422,9 @@ import start from "../../common/start/start"
         }
         .block {
             display: block;
+        }
+        .goPay {
+            background-color: #4cd964 !important;
         }
         .shopDetail {
             width: 100%;
@@ -471,6 +566,7 @@ import start from "../../common/start/start"
                                     }
                                     .price {
                                         color: #f60;
+                                        position: relative;
                                         span:first-child {
                                             display: inline-block;
                                             font-size: 18px;
@@ -479,7 +575,7 @@ import start from "../../common/start/start"
                                             font-weight: 600;
                                         }
                                         span:last-child {
-                                            display: inline-block;
+                                            position: absolute;
                                             background-color: #3190e8;
                                             color: #fff;
                                             width: 20px;
@@ -489,20 +585,27 @@ import start from "../../common/start/start"
                                             text-align: center;
                                             border-radius: 50%;
                                             margin-top: 15px;
-                                            margin-right: 0.1rem;
+                                            right: 0.1rem;
                                         }
                                         .delete {
-                                            display: inline-block;
+                                            position: absolute;
+                                            right: calc(~"0.1rem + 40px");
                                             width: 20px;
                                             height: 20px;
-                                            font-size: 16px;
-                                            line-height: 20px;
+                                            font-size: 15px;
+                                            line-height: 18px;
                                             text-align: center;
                                             border-radius: 50%;
                                             margin-top: 15px;
                                             color: #3190e8;
                                             background-color: #fff;
-                                            margin-right: 0;
+                                            border: 1px solid #3190e8;
+                                        }
+                                        .number {
+                                            line-height: 20px;
+                                            margin-top: 15px;
+                                            position: absolute;
+                                            right: calc(~"0.1rem + 25px");
                                         }
                                     }
                                 }

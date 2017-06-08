@@ -65,6 +65,7 @@
 <script>
 import header from "../common/header/header.vue";
 import {isPhone} from "../../js/utlis.js"
+import {payNow} from "../../js/common.js"
     export default {
         name: "register",
         components: {
@@ -77,8 +78,19 @@ import {isPhone} from "../../js/utlis.js"
                 code: "",
                 message: "",
                 timer: "",
-                second: 60
+                second: 60,
+                booking: "",
+                shopName: "",
             }
+        },
+        created () {
+            var _this = this;
+            payNow.$on("shopName",function(id){
+                _this.shopName = id;
+                console.log(_this.shopName);
+                console.log(id);
+            })
+            console.log(this.shopName);
         },
         methods: {
             getCodes: function () {
@@ -106,6 +118,7 @@ import {isPhone} from "../../js/utlis.js"
                 this.$message(this.message);
             },
             register: function () {
+                console.log("dengludd");
                 if(isPhone(this.phone) != true){
                     this.message = "请输入正确的手机号码";
                     this.open();
@@ -121,7 +134,14 @@ import {isPhone} from "../../js/utlis.js"
                 var nowTime = new Date().getTime();
                 localStorage.setItem("lastTime",nowTime);
                 localStorage.setItem("user","蜡笔小新");
-                this.$router.back(-100);
+                console.log(this.shopName);
+                if(this.shopName){
+                    console.log("denglu")
+                    this.$router.push({path:"goPay"});
+                }else {
+                    this.$router.back(-100);
+                }
+                
             }
         },
         mounted () { //改变isLogin的状态
