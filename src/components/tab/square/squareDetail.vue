@@ -130,7 +130,7 @@
 </template>
 <script>
 import start from "../../common/start/start";
-import {payNow} from "../../../js/common.js"
+import {paynow,shop_name,menu} from "../../../js/common.js"
     export default {
         name: "squareDetail",
         data () {
@@ -385,15 +385,15 @@ import {payNow} from "../../../js/common.js"
                 if(this.goPay == false){
                     return;
                 }
-                payNow.$emit("menu",this.menu);
-                payNow.$emit("shopName",this.shopDetail[0].titles)
+                paynow.$emit(menu,this.menu);
+                paynow.$emit(shop_name,this.shopDetail[0].titles)
                 this.$router.push({path:"register"})
-                // if(this.login == false) {
-                //     this.$router.push({path:"register"})
+                if(this.login == false) {
+                    this.$router.push({path:"register"})
                     
-                // }else {
-                //     this.$router.push({path:"goPay"})
-                // }
+                }else {
+                    this.$router.push({path:"goPay"})
+                }
             }
         }
     }

@@ -18,7 +18,7 @@
             <input type="text" placeholder="验证码" v-model="code"></input>
         </div>
         <div class="tips">温馨提示：未注册饿了么账户的手机号码，登录时将自动注册，且代表您已同意 <span class="paper">《用户服务协议》</span></div>
-        <el-button type="success" size="large" v-on:click="register">登录</el-button>
+        <el-button type="success" size="large" v-on:click="registering">登录</el-button>
     </div>
 </template>
 <style lang="less" scoped>
@@ -65,13 +65,13 @@
 <script>
 import header from "../common/header/header.vue";
 import {isPhone} from "../../js/utlis.js"
-import {payNow} from "../../js/common.js"
+import {paynow,shop_name,menu} from "../../js/common.js"
     export default {
         name: "register",
         components: {
             "vue-header":header,
         },
-        data () {
+        data: function() {
             return {
                 getCode: true,
                 phone: "",
@@ -81,25 +81,34 @@ import {payNow} from "../../js/common.js"
                 second: 60,
                 booking: "",
                 shopName: "",
+                ii: "rrrr",
             }
         },
-        created () {
-            var _this = this;
-            payNow.$on("shopName",function(id){
-                _this.shopName = id;
-                console.log(_this.shopName);
-                console.log(id);
-            })
-            console.log(this.shopName);
-        },
+        // created () {
+        //     var _this = this;
+        //     console.log("333");
+        //     paynow.$on("shopName",(id)=>{
+        //         this.shopName = id;
+        //         console.log(this.shopName);
+        //         console.log(id);
+        //     })
+        // },
+         mounted () {
+                paynow.$on(shop_name,(id)=>{
+                    this.ii = "44444";
+                    console.log(id);
+                    console.log(this.shopName);
+                    this.shopName = id;
+                    console.log(this.shopName)
+                })
+            },
         methods: {
-            getCodes: function () {
-                console.log("shenie");
+            getCodes () {
                 var _this = this;
+                console.log(_this.shopName);
                 console.log(this.phone);
                 console.log(isPhone(this.phone));
                 if(isPhone(this.phone) != true){
-                    console.log("siuod");
                     this.message = "请输入正确的手机号码";
                     this.open();
                     return;
@@ -114,11 +123,18 @@ import {payNow} from "../../js/common.js"
                     _this.second--;
                 },1000)
             },
-            open() {
+            open () {
                 this.$message(this.message);
             },
-            register: function () {
-                console.log("dengludd");
+            registering () {
+                console.log(this.ii);
+                var names = "";
+                paynow.$on(shop_name,(id)=>{
+                    console.log(id);
+                    names = id;
+                    console.log(names);
+                })
+                var _this = this;
                 if(isPhone(this.phone) != true){
                     this.message = "请输入正确的手机号码";
                     this.open();
@@ -134,19 +150,15 @@ import {payNow} from "../../js/common.js"
                 var nowTime = new Date().getTime();
                 localStorage.setItem("lastTime",nowTime);
                 localStorage.setItem("user","蜡笔小新");
-                console.log(this.shopName);
-                if(this.shopName){
-                    console.log("denglu")
-                    this.$router.push({path:"goPay"});
-                }else {
-                    this.$router.back(-100);
-                }
-                
+                // console.log(names);
+                    // if(names){
+                    //     console.log(names);
+                    //     this.$router.push({path:"goPay"});
+                    // }else {
+                    //     console.log(names);
+                    //     this.$router.back(-100);
+                    // }
             }
         },
-        mounted () { //改变isLogin的状态
-           
-        }
-
     }
 </script>
