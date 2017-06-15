@@ -79,22 +79,21 @@ import squareElse from "./squareElse.vue";
                         },1000)
                      }
                  }else {
-                      if(this.loading == true){
-                    return;
-                }
-                if(e.currentTarget.scrollTop + e.currentTarget.offsetHeight >= e.currentTarget.scrollHeight-300){
-                    this.loading = true;
-                    this.page = this.page + this.num;
-                    if(this.details.slice(this.page,this.num+this.page).length == 0) {
-                        this.loading = false;
-                        this.more = true;
-                        return;
+                    if(this.loading == true){
+                            return;
                     }
-                    this.detail = this.getList(this.page);
-                    this.loading = false;
-                }
-                 }
-                 
+                    if(e.currentTarget.scrollTop + e.currentTarget.offsetHeight >= e.currentTarget.scrollHeight-300){
+                        this.loading = true;
+                        this.page = this.page + this.num;
+                        if(this.details.slice(this.page,this.num+this.page).length == 0) {
+                            this.loading = false;
+                            this.more = true;
+                            return;
+                        }
+                        this.detail = this.getList(this.page);
+                        this.loading = false;
+                    }
+                 }                 
              }
          }
     }

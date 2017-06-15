@@ -56,7 +56,7 @@ import Vue from "vue";
         position: relative;
         width: 100%;
         height: 100%;
-        margin-bottom: 50px;
+        padding-bottom: 50px;
         .tab-bottom { 
             position: fixed;
             bottom: 0px;

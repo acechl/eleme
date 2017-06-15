@@ -1,9 +1,10 @@
 <template>
-    <div class="shopDetails">
+    <div class="shopDetails overflow" >
         <div class="shop">商家</div>
+         <p class="load" v-if="fresh">下拉刷新...</p>
         <div class="detail">
             <ul>
-                <li v-for="item in shopDetails">
+                <li v-for="item in shopDetail">
                     <router-link to="/squareDetail">
                         <img v-bind:src="item.img" alt="">
                         <div class="content">
@@ -19,43 +20,36 @@
                 </li>
             </ul>
         </div>
+        <p class="load" v-if="loading">正在加载</p>
+        <p class="load" v-if="more">没有更多了喔</p>
     </div>
 </template>
 <script>
     export default {
         name: "shopDetails",
+        props: ["shopDetail","loading","more","fresh"],
         data () {
             return {
-                shopDetails: [
-                    {img:"../../../../static/imgs/m1.png",title:"张记黄焖鸡米饭",qua:444,price:22,dis:666,send:1,discount:1,first:0},
-                    {img:"../../../../static/imgs/m2.png",title:"土老冒黄焖鸡米饭(人民广场店)",qua:555,dis:99,send:1,discount:1,first:1},
-                    {img:"../../../../static/imgs/m3.jpeg",title:"陈记桂林米粉黄焖鸡米饭",qua:333,price:11,dis:999,send:0,discount:1,first:1},
-                    {img:"../../../../static/imgs/m4.jpeg",title:"峰味饺子店",qua:44,price:80,dis:88,send:1,discount:0,first:1},
-                     {img:"../../../../static/imgs/m1.png",title:"张记黄焖鸡米饭",qua:444,price:22,dis:666,send:1,discount:1,first:0},
-                    {img:"../../../../static/imgs/m2.png",title:"土老冒黄焖鸡米饭(人民广场店)",qua:555,dis:99,send:1,discount:1,first:1},
-                    {img:"../../../../static/imgs/m3.jpeg",title:"陈记桂林米粉黄焖鸡米饭",qua:333,price:11,dis:999,send:0,discount:1,first:1},
-                    {img:"../../../../static/imgs/m4.jpeg",title:"峰味饺子店",qua:44,price:80,dis:88,send:1,discount:0,first:1},
-                     {img:"../../../../static/imgs/m1.png",title:"张记黄焖鸡米饭",qua:444,price:22,dis:666,send:1,discount:1,first:0},
-                    {img:"../../../../static/imgs/m2.png",title:"土老冒黄焖鸡米饭(人民广场店)",qua:555,dis:99,send:1,discount:1,first:1},
-                    {img:"../../../../static/imgs/m3.jpeg",title:"陈记桂林米粉黄焖鸡米饭",qua:333,price:11,dis:999,send:0,discount:1,first:1},
-                    {img:"../../../../static/imgs/m4.jpeg",title:"峰味饺子店",qua:44,price:80,dis:88,send:1,discount:0,first:1},
-                     {img:"../../../../static/imgs/m1.png",title:"张记黄焖鸡米饭",qua:444,price:22,dis:666,send:1,discount:1,first:0},
-                    {img:"../../../../static/imgs/m2.png",title:"土老冒黄焖鸡米饭(人民广场店)",qua:555,dis:99,send:1,discount:1,first:1},
-                    {img:"../../../../static/imgs/m3.jpeg",title:"陈记桂林米粉黄焖鸡米饭",qua:333,price:11,dis:999,send:0,discount:1,first:1},
-                    {img:"../../../../static/imgs/m4.jpeg",title:"峰味饺子店",qua:44,price:80,dis:88,send:1,discount:0,first:1},
-                     {img:"../../../../static/imgs/m1.png",title:"张记黄焖鸡米饭",qua:444,price:22,dis:666,send:1,discount:1,first:0},
-                    {img:"../../../../static/imgs/m2.png",title:"土老冒黄焖鸡米饭(人民广场店)",qua:555,dis:99,send:1,discount:1,first:1},
-                    {img:"../../../../static/imgs/m3.jpeg",title:"陈记桂林米粉黄焖鸡米饭",qua:333,price:11,dis:999,send:0,discount:1,first:1},
-                    {img:"../../../../static/imgs/m4.jpeg",title:"峰味饺子店",qua:44,price:80,dis:88,send:1,discount:0,first:1},
-                ]
             }
+        },
+        methods: {
+           
+        },
+        created () {
+            console.log(this.shopDetail);
         }
     }
 </script>
 <style lang="less" scoped>
     .shopDetails {
         width: 100%;
-        height: 100%;
+        .load {
+            height: 40px;   
+            line-height: 40px;
+            text-align: center;
+            margin:0;
+            width: 100%;
+        }
         .shop {
             padding: 0 0.1rem;
             width: 100%;
@@ -66,7 +60,10 @@
             font-size: 0.18rem;
         }
         .detail {
-            background-color: #fff;
+            ul {
+                background-color: #fff;
+                width: 100%;
+            }
             li {
                 width: 100%;
                 box-sizing: border-box;

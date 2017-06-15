@@ -18,7 +18,7 @@
             <input type="text" placeholder="验证码" v-model="code"></input>
         </div>
         <div class="tips">温馨提示：未注册饿了么账户的手机号码，登录时将自动注册，且代表您已同意 <span class="paper">《用户服务协议》</span></div>
-        <el-button type="success" size="large" v-on:click="register">登录</el-button>
+        <el-button type="success" size="large" v-on:click="registering">登录</el-button>
     </div>
 </template>
 <style lang="less" scoped>
@@ -65,29 +65,45 @@
 <script>
 import header from "../common/header/header.vue";
 import {isPhone} from "../../js/utlis.js"
+import {paynow,shop_name,menu} from "../../js/common.js"
+var shopName = "";
+paynow.$on(shop_name,(id)=>{
+    shopName = id;
+})
     export default {
         name: "register",
         components: {
             "vue-header":header,
         },
-        data () {
+        data: function() {
             return {
                 getCode: true,
                 phone: "",
                 code: "",
                 message: "",
                 timer: "",
-                second: 60
+                second: 60,
+                booking: "",
+                shopName: "",
+                ii: "rrrr",
             }
         },
+        // created () {
+        //     var _this = this;
+        //     console.log("333");
+        //     paynow.$on("shopName",(id)=>{
+        //         this.shopName = id;
+        //         console.log(this.shopName);
+        //         console.log(id);
+        //     })
+        // },
+         created () {
+               
+            },
         methods: {
-            getCodes: function () {
-                console.log("shenie");
+            getCodes () {
                 var _this = this;
-                console.log(this.phone);
-                console.log(isPhone(this.phone));
                 if(isPhone(this.phone) != true){
-                    console.log("siuod");
                     this.message = "请输入正确的手机号码";
                     this.open();
                     return;
@@ -102,10 +118,11 @@ import {isPhone} from "../../js/utlis.js"
                     _this.second--;
                 },1000)
             },
-            open() {
+            open () {
                 this.$message(this.message);
             },
-            register: function () {
+            registering () {
+                var _this = this;
                 if(isPhone(this.phone) != true){
                     this.message = "请输入正确的手机号码";
                     this.open();
@@ -121,12 +138,12 @@ import {isPhone} from "../../js/utlis.js"
                 var nowTime = new Date().getTime();
                 localStorage.setItem("lastTime",nowTime);
                 localStorage.setItem("user","蜡笔小新");
-                this.$router.back(-100);
+                    if(shopName){
+                        this.$router.push({path:"goPay"});
+                    }else {
+                        this.$router.back(-10);
+                    }
             }
         },
-        mounted () { //改变isLogin的状态
-           
-        }
-
     }
 </script>

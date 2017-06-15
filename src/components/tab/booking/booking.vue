@@ -1,5 +1,5 @@
 <template>
-    <div class="booking overflow" v-on:touchstart="touchStart($event)" v-on:touchend="touchEnd($event)" v-on:touchmove="touchMove($event)">
+    <div class="booking" v-on:touchstart="touchStart($event)" v-on:touchend="touchEnd($event)" v-on:touchmove="touchMove($event)">
         <vue-header>
             <span slot="left" class="left el-icon-arrow-left"></span>
             <span slot="middle" class="middle">订单详情</span>
@@ -91,6 +91,7 @@ import header from "../../common/header/header"
                     this.load = false;
                     //上拉
                     if(e.currentTarget.scrollTop <=0){//当达到顶端时
+                        console.log("到达顶端");
                         if(this.fresh == true){
                             return;
                         }
