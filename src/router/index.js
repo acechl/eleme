@@ -14,6 +14,7 @@ import account from "@/components/tab/self/account"
 import moreDetail from "@/components/tab/square/moreDetail"
 import tab from "@/components/tab/tab"
 import goPay from "@/components/goPay/goPay"
+// import remark from "@/components/goPay/remark"
 Vue.use(Router)
 Vue.use(Resource)
 
@@ -31,6 +32,7 @@ export default new Router({
     {path:"/account",name:"account",component:account},
     {path:"/moreDetail/:type",name:"moreDetail",component:moreDetail},
     {path:"/tab/:address",name:"tab",component:tab},
-    {path:"/goPay",name:"goPay",component:goPay}
+    {path:"/goPay",name:"goPay",component:goPay},
+    // {path:"/remark",name:"remark",component:remark}
   ]
 })

@@ -314,7 +314,7 @@ import {paynow,shop_name,menu} from "../../../js/common.js"
                         }
                     })
                 })
-                if(this.menu.length ==0 || this.again == true) {
+                if(this.menu.length ==0) {
                     this.menu.push({titles:title,qua:1,price:price});
                 }else {
                     this.again = true;
@@ -324,9 +324,9 @@ import {paynow,shop_name,menu} from "../../../js/common.js"
                             value.qua = value.qua + 1;
                         }
                     })
-                    // if(again == true){
-                    //     this.menu.push({titles:title,qua:1,price:price});
-                    // }
+                    if(this.again == true){
+                        this.menu.push({titles:title,qua:1,price:price});
+                    }
                 }
                 this.colorChange();
                 this.sendFare();
@@ -386,7 +386,8 @@ import {paynow,shop_name,menu} from "../../../js/common.js"
                     return;
                 }
                 paynow.$emit(menu,this.menu);
-                paynow.$emit(shop_name,this.shopDetail[0].titles)
+                paynow.$emit(shop_name,this.shopDetail[0].titles);
+                paynow.$emit("sendFare",this.send);
                 this.$router.push({path:"register"})
                 if(this.login == false) {
                     this.$router.push({path:"register"})

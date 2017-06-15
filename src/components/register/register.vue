@@ -66,6 +66,10 @@
 import header from "../common/header/header.vue";
 import {isPhone} from "../../js/utlis.js"
 import {paynow,shop_name,menu} from "../../js/common.js"
+var shopName = "";
+paynow.$on(shop_name,(id)=>{
+    shopName = id;
+})
     export default {
         name: "register",
         components: {
@@ -93,21 +97,12 @@ import {paynow,shop_name,menu} from "../../js/common.js"
         //         console.log(id);
         //     })
         // },
-         mounted () {
-                paynow.$on(shop_name,(id)=>{
-                    this.ii = "44444";
-                    console.log(id);
-                    console.log(this.shopName);
-                    this.shopName = id;
-                    console.log(this.shopName)
-                })
+         created () {
+               
             },
         methods: {
             getCodes () {
                 var _this = this;
-                console.log(_this.shopName);
-                console.log(this.phone);
-                console.log(isPhone(this.phone));
                 if(isPhone(this.phone) != true){
                     this.message = "请输入正确的手机号码";
                     this.open();
@@ -127,13 +122,6 @@ import {paynow,shop_name,menu} from "../../js/common.js"
                 this.$message(this.message);
             },
             registering () {
-                console.log(this.ii);
-                var names = "";
-                paynow.$on(shop_name,(id)=>{
-                    console.log(id);
-                    names = id;
-                    console.log(names);
-                })
                 var _this = this;
                 if(isPhone(this.phone) != true){
                     this.message = "请输入正确的手机号码";
@@ -150,14 +138,11 @@ import {paynow,shop_name,menu} from "../../js/common.js"
                 var nowTime = new Date().getTime();
                 localStorage.setItem("lastTime",nowTime);
                 localStorage.setItem("user","蜡笔小新");
-                // console.log(names);
-                    // if(names){
-                    //     console.log(names);
-                    //     this.$router.push({path:"goPay"});
-                    // }else {
-                    //     console.log(names);
-                    //     this.$router.back(-100);
-                    // }
+                    if(shopName){
+                        this.$router.push({path:"goPay"});
+                    }else {
+                        this.$router.back(-10);
+                    }
             }
         },
     }
