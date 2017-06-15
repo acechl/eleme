@@ -296,10 +296,6 @@ import start from "../../common/start/start"
                         white-space: nowrap;
                         overflow:hidden;
                         text-overflow: ellipsis;
-<<<<<<< HEAD
-                        white-space: nowrap;
-=======
->>>>>>> 4ce4f6b5dccb0fd9ebb9390be45885cb10b1e803
                     }
                 }
 
@@ -324,9 +320,6 @@ import start from "../../common/start/start"
                     line-height: 50px;
                 }
             }
-        }
-        .tabContent {
-            // padding-top:
         }
     }
 </style>
