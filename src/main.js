@@ -6,6 +6,10 @@ import "element-ui/lib/theme-default/index.css"
 import App from './App' //引入app.vue
 import router from './router' 
 import store from "./js/store"
+import moment from "moment";
+Vue.filter("datefmt",function(value){
+  return moment(Number(value)).format("YYYY-MM-DD");
+})
 // import FastClick from "fastclick"
 // FastClick.attach(document.body);
 Vue.config.productionTip = false;

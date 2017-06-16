@@ -1,7 +1,7 @@
 <template>
     <div class="squareDetail overflow">
         <div class="shopDetail"  v-for="item in shopDetail">
-            <div class="el-icon-arrow-left back"></div>
+            <router-link to="/tab/蜡笔小新" class="el-icon-arrow-left back"></router-link>
             <div class="content">
                 <img v-bind:src="item.img" alt="">
                 <div class="right">
@@ -24,12 +24,12 @@
         </div>
         <div class="tab">
                 <ul class="clearfix">
-                    <li v-bind:class="{'selected':type=='shop'}"><a href="javascript:;">商品</a></li>
-                    <li v-bind:class="{'selected':type=='evaluate'}"><a href="javascript:;">评价</a></li>
+                    <li v-bind:class="{'selected':type=='shop'}" v-on:click="tabChange('shop')"><a href="javascript:;">商品</a></li>
+                    <li v-bind:class="{'selected':type=='evaluate'}" v-on:click="tabChange('evaluate')"><a href="javascript:;">评价</a></li>
                 </ul>
         </div>
         <div class="tabContent">
-            <div class="goods clearfix" v-for="item in shopDetail" v-bind:class="{'none':type!='shop','block':type=='shop'}">
+            <div class="goods clearfix"  v-for="item in shopDetail" v-if="shop">
                 <div class="fl">
                     <ul>
                         <li v-for="em in item.classify" v-bind:class="{'choosed':types==em.id}">
@@ -62,7 +62,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="evaluate" v-for="item in evaluate" v-bind:class="{'none':type!='evaluate','block':type =='evaluate'}">
+            <div class="evaluate" v-for="item in evaluate" v-if="!shop">
                 <div class="score clearfix">
                     <div class="fl">
                         <h3>{{item.total}}</h3>
@@ -70,45 +70,45 @@
                         <p>高于周边商家{{item.higher}}</p>
                     </div>
                     <div class="fr">
-                        <div class="attitude">
-                            <span>服务态度</span>
-                            <start v-bind:start="item.attitude"></start>
-                            <span>{{item.attitude}}</span>
+                        <div class="attitude clearfix">
+                            <span class="fl">服务态度</span>
+                            <star v-bind:star="item.attitude" class="fl star"></star>
+                            <span class="fl time">{{item.attitude}}</span>
                         </div>
                         <div class="menus">
-                            <span>菜品评价</span>
-                            <start v-bind:start="item.menus"></start>
-                            <span>{{item.menus}}</span>
+                            <span class="taste fl">菜品评价</span>
+                            <star v-bind:star="item.menus" class="star fl"></star>
+                            <span class="time">{{item.menus}}</span>
                         </div>
                         <div class="timer">
-                            <span>送达时间</span>
-                            <span>{{item.timer}}分钟</span>
+                            <span class="fl">送达时间</span>
+                            <span class="fl">{{item.timer}}分钟</span>
                         </div>
                     </div>
                 </div>
                 <div class="appraise">
-                    <ul>
+                    <ul class="clearfix">
                         <li v-for="it in item.classify">
                             <a href="javascript:;">
                                 <span>{{it.name}}</span>
-                                <span>{{it.qua}}</span>
+                                <span>({{it.qua}})</span>
                             </a>
                         </li>
                     </ul>
                     <ul>
-                        <li v-for="it in item.client">
-                            <img v-bind:src="it.img" alt="" class="fl">
-                            <div class="fr">
-                                <div class="top">
-                                    <span class="nickName">{{it.nickName}}</span>
-                                    <span class="time">{{it.time}}</span>
+                        <li v-for="it in item.client" class="clearfix">
+                            <img v-bind:src="it.img" alt="">
+                            <div class="content">
+                                <div class="top clearfix">
+                                    <span class="nickName fl">{{it.nickName}}</span>
+                                    <span class="time fr">{{it.time | datefmt}}</span>
                                 </div>
                                 <div>
-                                    <start v-bind:start="it.score"></start>
+                                    <star v-bind:star="it.score"></star>
                                     <span v-if="it.timer">{{it.timer}}分钟送达</span>
                                 </div>
-                                <div v-show="it.goods" v-for="itemes in it.goods">
-                                    <span>{{itemes.name}}</span>
+                                <div v-show="it.goods">
+                                    <span v-for="itemes in it.goods">{{itemes.name}}</span>
                                 </div>
                             </div>
                         </li>
@@ -116,7 +116,7 @@
                 </div>
             </div>
         </div>
-        <div class="fix-bottom clearfix">
+        <div class="fix-bottom clearfix" v-if="shop">
             <span class="el-icon-date icon"></span>
             <div class="fare fl">
                 <div class="food">￥{{price}}</div>
@@ -129,13 +129,17 @@
     </div>
 </template>
 <script>
-import start from "../../common/start/start";
-import {paynow,shop_name,menu} from "../../../js/common.js"
+import star from "../../common/start/start";
+import {paynow,shop_name,menu} from "../../../js/common.js";
+import Vue from "vue";
     export default {
         name: "squareDetail",
         data () {
             return {
                 type:"shop",
+                shop: true,
+                num: 5,
+                page: 1,
                 types: "id0",
                 send:0,
                 price: 0,
@@ -154,64 +158,64 @@ import {paynow,shop_name,menu} from "../../../js/common.js"
                             {name: "环境好",qua: 33}
                         ],
                         client: [
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "蜡笔小新",time: "1432345434545",score: 4.5,goods:[
+                            {img: "../../../../static/imgs/client.jpeg",nickName: "蜡笔小新",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "风间彻",time: "1432345434545",score: 4.5,goods:[
+                            {img: "../../../../static/imgs/client.jpeg",nickName: "风间彻",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "寿司"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "樱田妮妮",time: "1432345434545",score: 4.5},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "蒙奇.D.路飞",time: "1432345434545",score: 4.5},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "蒙奇.D.卡普",time: "1432345434545",score: 4.5,goods:[
+                            {img: "../../../../static/imgs/client.jpeg",nickName: "樱田妮妮",time: "1497539970025",score: 4.5},
+                            {img: "../../../../static/imgs/client.jpeg",nickName: "蒙奇.D.路飞",time: "1497539970025",score: 4.5},
+                            {img: "../../../../static/imgs/client.jpeg",nickName: "蒙奇.D.卡普",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "蒙奇.D.龙",time: "1432345434545",score: 4.5,goods:[
+                            {img: "../../../../static/imgs/client.jpeg",nickName: "蒙奇.D.龙",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "托尼托尼.乔巴",time: "1432345434545",score: 4.5,goods:[
+                            {img: "../../../../static/imgs/client.jpeg",nickName: "托尼托尼.乔巴",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "江户川柯南",time: "1432345434545",score: 4.5,goods:[
+                            {img: "../../../../static/imgs/client.jpeg",nickName: "江户川柯南",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "灰原哀",time: "1432345434545",score: 4.5,goods:[
+                            {img: "../../../../static/imgs/client.jpeg",nickName: "灰原哀",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "毛利兰",time: "1432345434545",score: 4.5,goods:[
+                            {img: "../../../../static/imgs/client.jpeg",nickName: "毛利兰",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "野原向日葵",time: "1432345434545",score: 4.5,goods:[
+                            {img: "../../../../static/imgs/client.jpeg",nickName: "野原向日葵",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "向日宁次",time: "1432345434545",score: 4.5,goods:[
+                            {img: "../../../../static/imgs/client.jpeg",nickName: "向日宁次",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "我爱罗",time: "1432345434545",score: 4.5,goods:[
+                            {img: "../../../../static/imgs/client.jpeg",nickName: "我爱罗",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "宇智波佐助",time: "1432345434545",score: 4.5,goods:[
+                            {img: "../../../../static/imgs/client.jpeg",nickName: "宇智波佐助",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
@@ -297,7 +301,7 @@ import {paynow,shop_name,menu} from "../../../js/common.js"
             this.send = this.shopDetail[0].send;
         },
         components: {
-            "start": start
+            "star": star
         },
         computed: {
             login () {
@@ -395,6 +399,18 @@ import {paynow,shop_name,menu} from "../../../js/common.js"
                 }else {
                     this.$router.push({path:"goPay"})
                 }
+            },
+            tabChange (value) {
+                this.type = value;
+                if(value == "shop"){
+                    this.shop = true;
+                }else {
+                    this.shop = false;
+                }
+                console.log(this.type);
+            },
+            getList (page) {
+
             }
         }
     }
@@ -497,11 +513,9 @@ import {paynow,shop_name,menu} from "../../../js/common.js"
                 }
             }
         }
-// <<<<<<< HEAD
-// =======
         .tabContent {
             overflow: hidden;
-            height: calc(~"100% - 135px - 0.95rem");
+            height: calc(~"100% - 135px - 0.55rem");
             .goods {
                 display: flex;
                 row: nowrap;
@@ -617,11 +631,117 @@ import {paynow,shop_name,menu} from "../../../js/common.js"
                     }
                 }
             }
+            .evaluate {
+                background-color: #eee;
+                .score {
+                    padding: 0.1rem 0.1rem 0.2rem 0.15rem;
+                    margin-bottom: 0.2rem;
+                    padding-top: 0.1rem;
+                    width: 100%;
+                    box-sizing: border-box;
+                    background-color: #fff;
+                    .fl {
+                        border-right: 1px solid #eee;
+                        padding-right: 0.1rem;
+                        h3 {
+                            color: #f60;
+                            font-size: 30px;
+                            font-weight: 400;
+                        }
+                        p {
+                            margin: 0px;
+                        }
+                        p:nth-child(2){
+                            font-size: 14px;
+                            color: #666;
+                        }
+                        p:last-child {
+                            font-size: 12px;
+                            color: #999;
+                        }
+                    }
+                    .fr {
+                        .fl {
+                            border: none;
+                        }
+                        .time,.star {
+                            color: #f60;
+                        }
+                        .star {
+                            background-color: transparent;
+                            position: relative;
+                            z-index: 2;
+                        }
+                        .attitude,.timer,.menu {
+                            line-height: 0.25rem;
+                        }
+                    }
+                }
+                .appraise {
+                    background-color: #fff;
+                    padding: 0.1rem 0.15rem;
+                    width: 100%;
+                    box-sizing: border-box;
+                    ul:first-child {
+                        border-bottom: 1px solid #eee;
+                        li {
+                            float: left;
+                            padding: 0.08rem 0.03rem;
+                            background-color: #ebf5ff;
+                            color: #333;
+                            margin-right: 0.07rem;
+                            margin-bottom: 0.1rem;
+                            border-radius: 3px;
+                            font-size: 12px;
+                        }
+                        li:nth-child(3){
+                            background-color: #f5f5f5;
+                            color: #aaa;
+                        }
+                    }
+                    ul:last-child {
+                        width: 100%;
+                        li {
+                            width: 100%;
+                            position: relative;
+                            padding-top: 0.1rem;
+                            padding-bottom: 0.1rem;
+                            border-bottom: 1px solid #eee;
+                            img {
+                                position: absolute;
+                                left: 0.1rem;
+                                width: 0.4rem;
+                                height: 0.4rem;
+                            }
+                        .content {
+                            width: 100%;
+                            padding-left: 0.6rem;
+                            padding-right: 0.1rem;
+                            box-sizing: border-box;
+                            div:first-child {
+                                margin-bottom: 0.1rem;
+                            }
+                            div:last-child {
+                                text-align: left;
+                                margin-top: 0.1rem;
+                                span {
+                                    display: inline-block;
+                                    padding: 0.03rem;
+                                    border: 1px solid #eee;
+                                    margin-right: 0.03rem;
+                                }
+                            }
+                        }
+                        }
+                    }
+                }
+            }
         }
         .fix-bottom {
             position: fixed;
             height: 50px;
             width: 100%;
+            bottom: 50px;
             background-color: #3d3d3f;
             color: #fff;
             position: relative;
@@ -655,6 +775,5 @@ import {paynow,shop_name,menu} from "../../../js/common.js"
                 }
             }
         }
-// >>>>>>> ca57aca0aa8a2944a695a38ad6778a49d0e5c0c0
     }
 </style>

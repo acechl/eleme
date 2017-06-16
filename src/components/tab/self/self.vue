@@ -1,5 +1,5 @@
 <template>
-    <div class="self overflow">
+    <div class="self overflows">
         <div class="header">
             <div class="top">
                 <router-link to="./address" class="el-icon-arrow-left"></router-link>
@@ -9,13 +9,10 @@
             <div class="user" v-if="login">
                 <div class="use">
                     <img v-bind:src="pictureUrl" alt="">
-                    <img v-bind:src="item.src" alt="" v-for="item in images">
                     <span class="name">用户名:{{userName}}</span>
                     <input type="file" name="" id="" v-on:change="chooseImg($event)" accept="image/*"/>
-                    <!--<input type="file" class="" name="upload-file" id="upload-file" accept="image/*"/>-->
                 </div>
                 <router-link to="./account"class="el-icon-arrow-right"></router-link>
-                
             </div>
             <div v-else>
                 <router-link to="./register">请登录</router-link>
@@ -41,7 +38,7 @@ import EXIF from "exif-js";
                 imgEle: "",
                 imgUrl: "",
                 change: false,
-                images: []
+                images: ""
             }
         },
         computed: {
@@ -68,9 +65,10 @@ import EXIF from "exif-js";
                    var reader = new FileReader();
                    reader.readAsDataURL(fileList[i]);
                    reader.onload = function (e) {
-                        _this.images.push({
-                            src: e.target.result
-                        })
+                        // _this.images.push({
+                        //     src: e.target.result
+                        // })
+                        _this.pictureUrl = e.target.result;
                    }
                }
             //    方法1：用回调函数
@@ -90,7 +88,10 @@ import EXIF from "exif-js";
         }
     }
 </script>
-<style lang="less" scoped>
+<style lang="less" scoped> 
+    .overflows {
+        margin-top: -0.4rem;
+    }
     .header .top {
         padding-bottom: 30px;
         width: 100%;

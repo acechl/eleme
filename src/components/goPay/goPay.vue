@@ -217,11 +217,12 @@ paynow.$on("sendFare",(id)=>{
                 background-size: 10%;
                 text-align: left;
                 margin-bottom: 10px;
+                margin-top: 0.2rem;
                 .fr {
                     width: 0.2rem;
                     height: 0.2rem;
                     color: #ddd;
-                    margin-top: 0.2rem;
+                    margin-top: 0.1rem;
                 }
             }
             .sendTime {
