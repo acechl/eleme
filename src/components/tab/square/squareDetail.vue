@@ -20,7 +20,7 @@
             <div class="bottom clearfix">
                 <div class="fl">{{item.new}}</div>
                 <div class="fr">{{item.activity}}个活动</div>
-            </div> 
+            </div>
         </div>
         <div class="tab">
                 <ul class="clearfix">
@@ -158,64 +158,64 @@ import Vue from "vue";
                             {name: "环境好",qua: 33}
                         ],
                         client: [
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "蜡笔小新",time: "1497539970025",score: 4.5,goods:[
+                            {img: "/static/imgs/client.jpeg",nickName: "蜡笔小新",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "风间彻",time: "1497539970025",score: 4.5,goods:[
+                            {img: "/static/imgs/client.jpeg",nickName: "风间彻",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "寿司"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "樱田妮妮",time: "1497539970025",score: 4.5},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "蒙奇.D.路飞",time: "1497539970025",score: 4.5},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "蒙奇.D.卡普",time: "1497539970025",score: 4.5,goods:[
+                            {img: "/static/imgs/client.jpeg",nickName: "樱田妮妮",time: "1497539970025",score: 4.5},
+                            {img: "/static/imgs/client.jpeg",nickName: "蒙奇.D.路飞",time: "1497539970025",score: 4.5},
+                            {img: "/static/imgs/client.jpeg",nickName: "蒙奇.D.卡普",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "蒙奇.D.龙",time: "1497539970025",score: 4.5,goods:[
+                            {img: "/static/imgs/client.jpeg",nickName: "蒙奇.D.龙",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "托尼托尼.乔巴",time: "1497539970025",score: 4.5,goods:[
+                            {img: "/static/imgs/client.jpeg",nickName: "托尼托尼.乔巴",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "江户川柯南",time: "1497539970025",score: 4.5,goods:[
+                            {img: "/static/imgs/client.jpeg",nickName: "江户川柯南",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "灰原哀",time: "1497539970025",score: 4.5,goods:[
+                            {img: "/static/imgs/client.jpeg",nickName: "灰原哀",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "毛利兰",time: "1497539970025",score: 4.5,goods:[
+                            {img: "/static/imgs/client.jpeg",nickName: "毛利兰",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "野原向日葵",time: "1497539970025",score: 4.5,goods:[
+                            {img: "/static/imgs/client.jpeg",nickName: "野原向日葵",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "向日宁次",time: "1497539970025",score: 4.5,goods:[
+                            {img: "/static/imgs/client.jpeg",nickName: "向日宁次",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "我爱罗",time: "1497539970025",score: 4.5,goods:[
+                            {img: "/static/imgs/client.jpeg",nickName: "我爱罗",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
                             ]},
-                            {img: "../../../../static/imgs/client.jpeg",nickName: "宇智波佐助",time: "1497539970025",score: 4.5,goods:[
+                            {img: "/static/imgs/client.jpeg",nickName: "宇智波佐助",time: "1497539970025",score: 4.5,goods:[
                                 {name:"卤蛋"},
                                 {name:"保心丸"},
                                 {name: "菠萝焗饭"}
@@ -223,7 +223,7 @@ import Vue from "vue";
                 ]}
                 ],
                 shopDetail: [
-                    {img:"../../../../static/imgs/logo.png",titles:"黄氏烘焙",timer:28,fare: 5,warm: "戚风蛋糕蛋挞葡挞意大利面pizza双皮奶豆沙面包泡芙蔓越莓曲奇饼",
+                    {img:"/static/imgs/logo.png",titles:"黄氏烘焙",timer:28,fare: 5,warm: "戚风蛋糕蛋挞葡挞意大利面pizza双皮奶豆沙面包泡芙蔓越莓曲奇饼",
                     new:"新用户下单立减30.0元(不与其他活动共享)",activity: 8,send:9,min: 44,classify: [
                         {name: "戚风蛋糕",id: "id0"},
                         {name: "蔓越莓曲奇",id: "id1"},
@@ -237,64 +237,64 @@ import Vue from "vue";
                         {name: "番茄炒蛋",id:"id9"},
                         {name: "茶树菇炒牛肉",id:"id10"},
                         {name: "梅菜蒸猪肉",id:"id11"},
-                        {name: "绿豆海带糖水",id:"id12"} 
+                        {name: "绿豆海带糖水",id:"id12"}
                     ],contents: [
                         {name:"戚风蛋糕",id: "id0",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新1",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete:false,num:0},
-                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮1",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
+                            {img:"/static/imgs/goods.jpeg",title:"蜡笔小新1",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete:false,num:0},
+                            {img:"/static/imgs/goods.jpeg",title:"樱田妮妮1",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]},
                         {name: "蔓越莓曲奇",id: "id1",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新2",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
-                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮2",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
+                            {img:"/static/imgs/goods.jpeg",title:"蜡笔小新2",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"/static/imgs/goods.jpeg",title:"樱田妮妮2",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]},
                         {name:"双皮奶",id: "id2",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新3",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
-                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮3",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
+                            {img:"/static/imgs/goods.jpeg",title:"蜡笔小新3",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"/static/imgs/goods.jpeg",title:"樱田妮妮3",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]},
                         {name: "意大利面",id: "id3",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新4",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
-                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮4",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
+                            {img:"/static/imgs/goods.jpeg",title:"蜡笔小新4",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"/static/imgs/goods.jpeg",title:"樱田妮妮4",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]},
                         {name: "pizza",id:"id4",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新5",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
-                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮5",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
+                            {img:"/static/imgs/goods.jpeg",title:"蜡笔小新5",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"/static/imgs/goods.jpeg",title:"樱田妮妮5",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]},
                         {name: "泡芙",id:"id5",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新6",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
-                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮6",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
+                            {img:"/static/imgs/goods.jpeg",title:"蜡笔小新6",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"/static/imgs/goods.jpeg",title:"樱田妮妮6",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]},
                         {name: "蛋挞",id: "id6",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新7",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
-                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮7",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
+                            {img:"/static/imgs/goods.jpeg",title:"蜡笔小新7",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"/static/imgs/goods.jpeg",title:"樱田妮妮7",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]},
                         {name: "豆沙面包",id:"id7",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新8",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
-                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮8",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
+                            {img:"/static/imgs/goods.jpeg",title:"蜡笔小新8",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"/static/imgs/goods.jpeg",title:"樱田妮妮8",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]},
                         {name: "寿司",id:"id8",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新9",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false},
-                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮9",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
+                            {img:"/static/imgs/goods.jpeg",title:"蜡笔小新9",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false},
+                            {img:"/static/imgs/goods.jpeg",title:"樱田妮妮9",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]} ,
                         {name: "番茄炒蛋",id:"id9",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新10",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
-                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮10",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
+                            {img:"/static/imgs/goods.jpeg",title:"蜡笔小新10",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"/static/imgs/goods.jpeg",title:"樱田妮妮10",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]} ,
                         {name: "茶树菇炒牛肉",id:"id10",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新11",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
-                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮11",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
+                            {img:"/static/imgs/goods.jpeg",title:"蜡笔小新11",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"/static/imgs/goods.jpeg",title:"樱田妮妮11",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]} ,
                         {name: "梅菜蒸猪肉",id:"id11",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新12",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
-                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮12",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
+                            {img:"/static/imgs/goods.jpeg",title:"蜡笔小新12",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"/static/imgs/goods.jpeg",title:"樱田妮妮12",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
                         ]} ,
                         {name: "绿豆海带糖水",id:"id12",goods:[
-                            {img:"../../../../static/imgs/goods.jpeg",title:"蜡笔小新13",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
-                            {img:"../../../../static/imgs/goods.jpeg",title:"樱田妮妮13",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
-                        ]}  
+                            {img:"/static/imgs/goods.jpeg",title:"蜡笔小新13",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0},
+                            {img:"/static/imgs/goods.jpeg",title:"樱田妮妮13",content: "尊贵的客人：如果您觉得享甜的服务不错，请给我们5星好评支持我们的工作，您的支持是我们努力的动力，如果您遇到任何问题，请不要随意给差评，欢迎致电本店电话：23991027，我们会第一时间为您解决和服务。",qua: 333,good: "99.98%",price:33,delete: false,num:0}
+                        ]}
                     ]}
                 ]
-                
-                
+
+
             }
         },
         created () {
@@ -311,7 +311,7 @@ import Vue from "vue";
         methods: {
             addMenu (price,title) {
                 this.price = this.price + price;
-                this.shopDetail[0].contents.forEach((value,index,arr)=>{ 
+                this.shopDetail[0].contents.forEach((value,index,arr)=>{
                     value.goods.forEach((values,indexs,array)=>{
                         if(values.title == title){
                             values.delete = true;
@@ -395,7 +395,7 @@ import Vue from "vue";
                 this.$router.push({path:"register"})
                 if(this.login == false) {
                     this.$router.push({path:"register"})
-                    
+
                 }else {
                     this.$router.push({path:"goPay"})
                 }

@@ -4,7 +4,7 @@
             <router-link slot="left" class="el-icon-arrow-left left" to="/squareDetail"></router-link>
             <span slot="right" class="middle">确认订单</span>
         </vue-header>
-        <div class="session">   
+        <div class="session">
             <div class="address clearfix">
                 <div class="fl">
                     <div class="selected" v-if="sure">{{address}}</div>
@@ -20,10 +20,10 @@
                 <ul v-if="show">
                     <li v-for="item in timeList" v-on:click="selecting(item.time)">{{item.time}}</li>
                 </ul>
-                 
+
             </div>
             <div class="payType clearfix">
-                <div class="cash">  
+                <div class="cash">
                     <span class="fl">支付方式</span>
                     <span class="fr" v-on:click="payChange">{{payType}}<span class="el-icon-arrow-right"></span></span>
                 </div>
@@ -75,7 +75,7 @@
                 <span class="fl">待支付￥{{total}}</span>
                 <span class="fr">确认下单</span>
             </div>
-            
+
         </div>
         <remark class="remarks" v-if="remark"  v-on:tatseSure="makeSuring"></remark>
     </div>
@@ -185,7 +185,7 @@ paynow.$on("sendFare",(id)=>{
                 this.taste = id.comment;
             }
         },
-        
+
         created () {
             this.shopName = shopName;
             this.menuList = menuList;
@@ -213,7 +213,7 @@ paynow.$on("sendFare",(id)=>{
                 box-sizing: border-box;
                 height: 0.6rem;
                 line-height: 0.6rem;
-                background: url("../../../static/imgs/address_bottom.png") repeat-x 0 100% #fff;
+                background: url("/static/imgs/address_bottom.png") repeat-x 0 100% #fff;
                 background-size: 10%;
                 text-align: left;
                 margin-bottom: 10px;
@@ -404,6 +404,6 @@ paynow.$on("sendFare",(id)=>{
                     }
                 }
         }
-        
+
     }
 </style>

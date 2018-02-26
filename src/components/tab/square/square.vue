@@ -78,41 +78,41 @@
                     observeParents:true,
                 },
                items1: [
-                   {"img":"../../../../static/imgs/good.jpeg","title": "美食"},
-                   {"img":"../../../../static/imgs/drink.jpeg","title": "甜品饮品"},
-                   {"img":"../../../../static/imgs/super.jpeg","title": "商超便利"},
-                   {"img":"../../../../static/imgs/breakfast.jpeg","title": "预定早餐"},
-                   {"img":"../../../../static/imgs/fruit.jpeg","title": "果蔬生鲜"},
-                   {"img":"../../../../static/imgs/shop.jpeg","title": "新店特惠"},
-                   {"img":"../../../../static/imgs/onTime.jpeg","title": "准时达"},
-                   {"img":"../../../../static/imgs/night.jpeg","title": "夜宵"},
+                   {"img":"/static/imgs/good.jpeg","title": "美食"},
+                   {"img":"/static/imgs/drink.jpeg","title": "甜品饮品"},
+                   {"img":"/static/imgs/super.jpeg","title": "商超便利"},
+                   {"img":"/static/imgs/breakfast.jpeg","title": "预定早餐"},
+                   {"img":"/static/imgs/fruit.jpeg","title": "果蔬生鲜"},
+                   {"img":"/static/imgs/shop.jpeg","title": "新店特惠"},
+                   {"img":"/static/imgs/onTime.jpeg","title": "准时达"},
+                   {"img":"/static/imgs/night.jpeg","title": "夜宵"},
                ],
                items2: [
-                   {"img":"../../../../static/imgs/introduce.jpeg","title": "土豪推荐"},
-                   {"img":"../../../../static/imgs/humbeger.jpeg","title": "汉堡薯条"},
-                   {"img":"../../../../static/imgs/soup.jpeg","title": "包子粥店"},
-                   {"img":"../../../../static/imgs/cake.jpeg","title": "鲜花蛋糕"},
-                   {"img":"../../../../static/imgs/hot.jpeg","title": "麻辣烫"},
-                   {"img":"../../../../static/imgs/四川.jpeg","title": "川湘菜"},
-                   {"img":"../../../../static/imgs/pizza.jpeg","title": "披萨意面"},
-                   {"img":"../../../../static/imgs/ricce.jpeg","title": "日韩料理"},
+                   {"img":"/static/imgs/introduce.jpeg","title": "土豪推荐"},
+                   {"img":"/static/imgs/humbeger.jpeg","title": "汉堡薯条"},
+                   {"img":"/static/imgs/soup.jpeg","title": "包子粥店"},
+                   {"img":"/static/imgs/cake.jpeg","title": "鲜花蛋糕"},
+                   {"img":"/static/imgs/hot.jpeg","title": "麻辣烫"},
+                   {"img":"/static/imgs/四川.jpeg","title": "川湘菜"},
+                   {"img":"/static/imgs/pizza.jpeg","title": "披萨意面"},
+                   {"img":"/static/imgs/ricce.jpeg","title": "日韩料理"},
                ],
                details: [
-                   {"img":"../../../../static/imgs/m1.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":2.2,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":1,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m2.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":0.3,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                    {"img":"../../../../static/imgs/m3.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":3.4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m4.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4.5,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m1.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":5,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m2.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m3.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m4.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m1.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m2.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m3.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m4.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m1.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m2.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
-                   {"img":"../../../../static/imgs/m3.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33}
+                   {"img":"/static/imgs/m1.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":2.2,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":1,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                   {"img":"/static/imgs/m2.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":0.3,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                    {"img":"/static/imgs/m3.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":3.4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                   {"img":"/static/imgs/m4.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4.5,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                   {"img":"/static/imgs/m1.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":5,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                   {"img":"/static/imgs/m2.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                   {"img":"/static/imgs/m3.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                   {"img":"/static/imgs/m4.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                   {"img":"/static/imgs/m1.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                   {"img":"/static/imgs/m2.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                   {"img":"/static/imgs/m3.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                   {"img":"/static/imgs/m4.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                   {"img":"/static/imgs/m1.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                   {"img":"/static/imgs/m2.png","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33},
+                   {"img":"/static/imgs/m3.jpeg","title": "上海第一家香吧岛龙虾（寿司免费）","brand":0,"score":4,"quatity": 100,"min":"0","fare":"8","quality":1,"inTime":1,"free":0,"host":1,"time":1,"kilometer":1.12,"minute":33}
                ],
                page: 0,
                num: 5,
@@ -193,7 +193,7 @@
             margin-right: 0.2rem;
             font-size: 12px;
         }
-        .swiper { 
+        .swiper {
             position: relative;
             background-color: #fff;
             border-bottom: 1px solid #ddd;
@@ -221,11 +221,11 @@
             .swiper-pagination {
                 position: absolute;
             }
-        
+
         }
         .swiper-container,.swiper-wrapper {
                 padding-bottom: 30px;
-            }    
+            }
         }
         @keyframes loading {
             0% {
@@ -305,7 +305,7 @@
             }
         }
         .css {
-            background: url("../../../../static/imgs/icon_loading.png") no-repeat;
+            background: url("/static/imgs/icon_loading.png") no-repeat;
             transform: translateX(-50%);
             background-size: 100%;
             background-position: -4px 0px;
@@ -332,5 +332,5 @@
         .right {
             line-height: 30px;
         }
-      
+
 </style>

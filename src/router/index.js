@@ -19,6 +19,7 @@ Vue.use(Router)
 Vue.use(Resource)
 
 export default new Router({
+  // base: '/vue-eleme/eleme/',
   routes: [
     {path: '/',name:"address",component:address},
     {path: "/address",name:"address",component:address},

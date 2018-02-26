@@ -41,23 +41,23 @@ import header from "../../common/header/header"
         data () {
             return {
                 bookDetails: [
-                    {img: "../../../../static/imgs/m1.png",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
-                    {img: "../../../../static/imgs/m2.png",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
-                    {img: "../../../../static/imgs/m3.jpeg",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
-                    {img: "../../../../static/imgs/m4.jpeg",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
-                    {img: "../../../../static/imgs/m1.png",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
-                    {img: "../../../../static/imgs/m2.png",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
-                    {img: "../../../../static/imgs/m3.jpeg",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
-                    {img: "../../../../static/imgs/m4.jpeg",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567}, {img: "../../../../static/imgs/m1.png",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
-                    {img: "../../../../static/imgs/m2.png",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
-                    {img: "../../../../static/imgs/m3.jpeg",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
-                    {img: "../../../../static/imgs/m4.jpeg",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567}, {img: "../../../../static/imgs/m1.png",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
-                    {img: "../../../../static/imgs/m2.png",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
-                    {img: "../../../../static/imgs/m3.jpeg",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
-                    {img: "../../../../static/imgs/m4.jpeg",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567}, {img: "../../../../static/imgs/m1.png",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
-                    {img: "../../../../static/imgs/m2.png",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
-                    {img: "../../../../static/imgs/m3.jpeg",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
-                    {img: "../../../../static/imgs/m4.jpeg",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567}
+                    {img: "/static/imgs/m1.png",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
+                    {img: "/static/imgs/m2.png",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
+                    {img: "/static/imgs/m3.jpeg",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
+                    {img: "/static/imgs/m4.jpeg",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
+                    {img: "/static/imgs/m1.png",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
+                    {img: "/static/imgs/m2.png",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
+                    {img: "/static/imgs/m3.jpeg",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
+                    {img: "/static/imgs/m4.jpeg",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567}, {img: "/static/imgs/m1.png",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
+                    {img: "/static/imgs/m2.png",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
+                    {img: "/static/imgs/m3.jpeg",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
+                    {img: "/static/imgs/m4.jpeg",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567}, {img: "/static/imgs/m1.png",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
+                    {img: "/static/imgs/m2.png",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
+                    {img: "/static/imgs/m3.jpeg",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
+                    {img: "/static/imgs/m4.jpeg",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567}, {img: "/static/imgs/m1.png",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
+                    {img: "/static/imgs/m2.png",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
+                    {img: "/static/imgs/m3.jpeg",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567},
+                    {img: "/static/imgs/m4.jpeg",title:"黄氏烘焙",state:"订单已完成",list:"野原新之助风间彻樱田妮妮正男阿呆野原向日葵野原广志野原美伢",price: "￥999",time:1423434546567}
                 ],
                 num: 5,
                 page: 0,
@@ -193,7 +193,7 @@ import header from "../../common/header/header"
                         }
                     }
                 }
-            } 
+            }
         }
     }
 </style>

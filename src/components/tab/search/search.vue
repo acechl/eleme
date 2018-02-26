@@ -27,26 +27,26 @@ import shopDetails from "./shopDetails.vue"
                 fresh: false,
                 more: false,
                  shopDetails: [
-                    {img:"../../../../static/imgs/m1.png",title:"张记黄焖鸡米饭",qua:444,price:22,dis:666,send:1,discount:1,first:0},
-                    {img:"../../../../static/imgs/m2.png",title:"土老冒黄焖鸡米饭(人民广场店)",qua:555,dis:99,send:1,discount:1,first:1},
-                    {img:"../../../../static/imgs/m3.jpeg",title:"陈记桂林米粉黄焖鸡米饭",qua:333,price:11,dis:999,send:0,discount:1,first:1},
-                    {img:"../../../../static/imgs/m4.jpeg",title:"峰味饺子店",qua:44,price:80,dis:88,send:1,discount:0,first:1},
-                     {img:"../../../../static/imgs/m1.png",title:"张记黄焖鸡米饭",qua:444,price:22,dis:666,send:1,discount:1,first:0},
-                    {img:"../../../../static/imgs/m2.png",title:"土老冒黄焖鸡米饭(人民广场店)",qua:555,dis:99,send:1,discount:1,first:1},
-                    {img:"../../../../static/imgs/m3.jpeg",title:"陈记桂林米粉黄焖鸡米饭",qua:333,price:11,dis:999,send:0,discount:1,first:1},
-                    {img:"../../../../static/imgs/m4.jpeg",title:"峰味饺子店",qua:44,price:80,dis:88,send:1,discount:0,first:1},
-                     {img:"../../../../static/imgs/m1.png",title:"张记黄焖鸡米饭",qua:444,price:22,dis:666,send:1,discount:1,first:0},
-                    {img:"../../../../static/imgs/m2.png",title:"土老冒黄焖鸡米饭(人民广场店)",qua:555,dis:99,send:1,discount:1,first:1},
-                    {img:"../../../../static/imgs/m3.jpeg",title:"陈记桂林米粉黄焖鸡米饭",qua:333,price:11,dis:999,send:0,discount:1,first:1},
-                    {img:"../../../../static/imgs/m4.jpeg",title:"峰味饺子店",qua:44,price:80,dis:88,send:1,discount:0,first:1},
-                     {img:"../../../../static/imgs/m1.png",title:"张记黄焖鸡米饭",qua:444,price:22,dis:666,send:1,discount:1,first:0},
-                    {img:"../../../../static/imgs/m2.png",title:"土老冒黄焖鸡米饭(人民广场店)",qua:555,dis:99,send:1,discount:1,first:1},
-                    {img:"../../../../static/imgs/m3.jpeg",title:"陈记桂林米粉黄焖鸡米饭",qua:333,price:11,dis:999,send:0,discount:1,first:1},
-                    {img:"../../../../static/imgs/m4.jpeg",title:"峰味饺子店",qua:44,price:80,dis:88,send:1,discount:0,first:1},
-                     {img:"../../../../static/imgs/m1.png",title:"张记黄焖鸡米饭",qua:444,price:22,dis:666,send:1,discount:1,first:0},
-                    {img:"../../../../static/imgs/m2.png",title:"土老冒黄焖鸡米饭(人民广场店)",qua:555,dis:99,send:1,discount:1,first:1},
-                    {img:"../../../../static/imgs/m3.jpeg",title:"陈记桂林米粉黄焖鸡米饭",qua:333,price:11,dis:999,send:0,discount:1,first:1},
-                    {img:"../../../../static/imgs/m4.jpeg",title:"峰味饺子店",qua:44,price:80,dis:88,send:1,discount:0,first:1},
+                    {img:"/static/imgs/m1.png",title:"张记黄焖鸡米饭",qua:444,price:22,dis:666,send:1,discount:1,first:0},
+                    {img:"/static/imgs/m2.png",title:"土老冒黄焖鸡米饭(人民广场店)",qua:555,dis:99,send:1,discount:1,first:1},
+                    {img:"/static/imgs/m3.jpeg",title:"陈记桂林米粉黄焖鸡米饭",qua:333,price:11,dis:999,send:0,discount:1,first:1},
+                    {img:"/static/imgs/m4.jpeg",title:"峰味饺子店",qua:44,price:80,dis:88,send:1,discount:0,first:1},
+                     {img:"/static/imgs/m1.png",title:"张记黄焖鸡米饭",qua:444,price:22,dis:666,send:1,discount:1,first:0},
+                    {img:"/static/imgs/m2.png",title:"土老冒黄焖鸡米饭(人民广场店)",qua:555,dis:99,send:1,discount:1,first:1},
+                    {img:"/static/imgs/m3.jpeg",title:"陈记桂林米粉黄焖鸡米饭",qua:333,price:11,dis:999,send:0,discount:1,first:1},
+                    {img:"/static/imgs/m4.jpeg",title:"峰味饺子店",qua:44,price:80,dis:88,send:1,discount:0,first:1},
+                     {img:"/static/imgs/m1.png",title:"张记黄焖鸡米饭",qua:444,price:22,dis:666,send:1,discount:1,first:0},
+                    {img:"/static/imgs/m2.png",title:"土老冒黄焖鸡米饭(人民广场店)",qua:555,dis:99,send:1,discount:1,first:1},
+                    {img:"/static/imgs/m3.jpeg",title:"陈记桂林米粉黄焖鸡米饭",qua:333,price:11,dis:999,send:0,discount:1,first:1},
+                    {img:"/static/imgs/m4.jpeg",title:"峰味饺子店",qua:44,price:80,dis:88,send:1,discount:0,first:1},
+                     {img:"/static/imgs/m1.png",title:"张记黄焖鸡米饭",qua:444,price:22,dis:666,send:1,discount:1,first:0},
+                    {img:"/static/imgs/m2.png",title:"土老冒黄焖鸡米饭(人民广场店)",qua:555,dis:99,send:1,discount:1,first:1},
+                    {img:"/static/imgs/m3.jpeg",title:"陈记桂林米粉黄焖鸡米饭",qua:333,price:11,dis:999,send:0,discount:1,first:1},
+                    {img:"/static/imgs/m4.jpeg",title:"峰味饺子店",qua:44,price:80,dis:88,send:1,discount:0,first:1},
+                     {img:"/static/imgs/m1.png",title:"张记黄焖鸡米饭",qua:444,price:22,dis:666,send:1,discount:1,first:0},
+                    {img:"/static/imgs/m2.png",title:"土老冒黄焖鸡米饭(人民广场店)",qua:555,dis:99,send:1,discount:1,first:1},
+                    {img:"/static/imgs/m3.jpeg",title:"陈记桂林米粉黄焖鸡米饭",qua:333,price:11,dis:999,send:0,discount:1,first:1},
+                    {img:"/static/imgs/m4.jpeg",title:"峰味饺子店",qua:44,price:80,dis:88,send:1,discount:0,first:1},
                 ],
             }
         },
@@ -87,7 +87,7 @@ import shopDetails from "./shopDetails.vue"
                     this.fresh = true;
                     setTimeout(()=>{
                         this.fresh = false;
-                    },2000) 
+                    },2000)
                 }else {
                      if(this.loading == true){
                         return;
@@ -105,7 +105,7 @@ import shopDetails from "./shopDetails.vue"
                     }
                 }
                 }
-                   
+
             }
         },
         created () {

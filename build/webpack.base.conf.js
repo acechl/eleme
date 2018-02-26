@@ -26,7 +26,9 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src')
+      '@': resolve('src'),
+      "static": resolve("static"),
+      'imgs':resolve('static/imgs')
     },
     // fallback: [path.join(__dirname,"./node_modules")]
   },
@@ -55,7 +57,7 @@ module.exports = {
         loader: "style-loader!css-loader"
       },
       {
-        test: /\.less$/,                  
+        test: /\.less$/,
                 // 将样式抽取出来为独立的文件
         loader:"style-loader!css-loader!less-loader"
       },

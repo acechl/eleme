@@ -91,22 +91,22 @@ import shopDetail from "../../common/shopDetail/shopDetail"
                     {name:"筛选",type:"select",color:"#bbb",classes: "el-icon-caret-bottom"}
                 ],
                 classify: [
-                    {img: "../../../../static/imgs/c1.png",num: 111,name: "快餐便当",color:"#fff"},
-                    {img: "../../../../static/imgs/c2.jpeg",num: 222,name: "特色菜系",color: "f1f1f1"},
-                    {img: "../../../../static/imgs/c3.jpeg",num: 333,name: "异国料理",color: "f1f1f1"},
-                    {img: "../../../../static/imgs/c4.png",num: 444,name: "小吃宵夜",color: "f1f1f1"},
-                    {img: "../../../../static/imgs/c5.png",num: 555,name: "甜品饮品",color: "f1f1f1"},
-                    {img: "../../../../static/imgs/c6.png",num: 666,name: "果蔬生鲜",color: "f1f1f1"},
-                    {img: "../../../../static/imgs/c7.png",num: 777,name: "鲜花蛋糕",color: "f1f1f1"},
-                    {img: "../../../../static/imgs/c8.png",num: 888,name: "商品超市",color: "f1f1f1"},
+                    {img: "/static/imgs/c1.png",num: 111,name: "快餐便当",color:"#fff"},
+                    {img: "/static/imgs/c2.jpeg",num: 222,name: "特色菜系",color: "f1f1f1"},
+                    {img: "/static/imgs/c3.jpeg",num: 333,name: "异国料理",color: "f1f1f1"},
+                    {img: "/static/imgs/c4.png",num: 444,name: "小吃宵夜",color: "f1f1f1"},
+                    {img: "/static/imgs/c5.png",num: 555,name: "甜品饮品",color: "f1f1f1"},
+                    {img: "/static/imgs/c6.png",num: 666,name: "果蔬生鲜",color: "f1f1f1"},
+                    {img: "/static/imgs/c7.png",num: 777,name: "鲜花蛋糕",color: "f1f1f1"},
+                    {img: "/static/imgs/c8.png",num: 888,name: "商品超市",color: "f1f1f1"},
                 ],
                 ranks: [
-                    {name:"智能排序",img: "../../../../static/imgs/c1.png"},
-                    {name:"距离最近",img: "../../../../static/imgs/c2.jpeg"},
-                    {name:"销量最高",img: "../../../../static/imgs/c3.jpeg"},
-                    {name:"起送价最低",img: "../../../../static/imgs/c4.png"},
-                    {name:"配送速度最快",img: "../../../../static/imgs/c5.png"},
-                    {name:"评分最高",img: "../../../../static/imgs/c6.png"},
+                    {name:"智能排序",img: "/static/imgs/c1.png"},
+                    {name:"距离最近",img: "/static/imgs/c2.jpeg"},
+                    {name:"销量最高",img: "/static/imgs/c3.jpeg"},
+                    {name:"起送价最低",img: "/static/imgs/c4.png"},
+                    {name:"配送速度最快",img: "/static/imgs/c5.png"},
+                    {name:"评分最高",img: "/static/imgs/c6.png"},
                 ],
                 c1: [
                     {name:this.types,num: 999},
@@ -135,7 +135,7 @@ import shopDetail from "../../common/shopDetail/shopDetail"
                     {name:"在线支付",logo:"付"},
                     {name:"准时达",logo:"准"}
                 ],
-                
+
             }
         },
         methods : {
@@ -322,7 +322,7 @@ import shopDetail from "../../common/shopDetail/shopDetail"
                             margin-left: 3px;
                         }
                     }
-                   
+
                 }
             }
         }
@@ -512,7 +512,7 @@ import shopDetail from "../../common/shopDetail/shopDetail"
                 }
             }
             .right {
-                overflow-y: auto; 
+                overflow-y: auto;
                 height: 360px;
                 padding-left: 0.1rem;
                 box-sizing: border-box;
@@ -534,7 +534,7 @@ import shopDetail from "../../common/shopDetail/shopDetail"
                     li:first-child {
                         color: #3190e8;
                     }
-                    
+
                 }
             }
             .right {

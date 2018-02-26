@@ -83,7 +83,7 @@ import {check_login} from "../../js/utlis"
                 {city: "台湾"},
                 {city: "澳门"},
                 {city: "山西"},
-                {city: "陕西"},                
+                {city: "陕西"},
             ],
             }
         },
@@ -94,8 +94,8 @@ import {check_login} from "../../js/utlis"
             ...mapMutations([
                 "pictureUrl",
                 "userName",
-                ]) 
-            
+                ])
+
 
         },
         computed: ({
@@ -114,7 +114,7 @@ import {check_login} from "../../js/utlis"
                 this.$store.commit("changeLogin",{
                     login: true
                 })
-               _this.pictureUrl({pictureUrl:"../../../static/imgs/self.jpg"});
+               _this.pictureUrl({pictureUrl:"/static/imgs/self.jpg"});
                _this.userName({userName: "蜡笔小新"})
             }
         }
